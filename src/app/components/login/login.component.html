@@ -1,0 +1,74 @@
+<section class="login-section bg-white ">
+    <div class="login ">
+        <div class="container ">
+            <div class="row d-flex justify-content-center align-items-center" style="height: 100vh;" >
+                <div class="col-sm-12 col-md-6  ">
+                 <div>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="./assets/images/logo.png" alt="" width="187px" height="132px"
+                       
+                        >
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="./assets/images/group.png" alt="" width="408px" height="562px">
+                    </div>
+ 
+                    
+                 </div>
+                </div>
+                <div class="col-sm-12 col-md-6 ">
+                   <div class="d-flex flex-column justify-content-center align-items-center">
+                    <div class=" ">
+                        <img src="./assets/images/sap.png" alt="" 
+                       height="165.65px" width="118px">
+                    </div>
+                    <div >
+                        <mat-card style="width:484px ;height:300px;" class=" ">
+                         
+                           <div class="d-flex flex-column justify-content-center align-items-center" style="width:484px ;height:300px;">
+                            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                            <div class="py-3">
+                                <mat-card-content class=" py-3" style="font-size: 15px ; font-weight:700; color:#F4881F;">Sign In</mat-card-content>
+                                <mat-form-field appearance="outline" class="bg-white" style="width:209px;height:56px">
+                                    <mat-label class="text-black">Email Id</mat-label>
+                                    <input formControlName="email" matInput placeholder="Email Id">
+                                    
+                                    <mat-error *ngIf="f['email'].touched && f['email'].invalid" class="text-danger">
+                                        <span *ngIf="f['email'].errors && f['email'].errors['required']">Email required.</span>
+                                        <span *ngIf="f['email'].errors && f['email'].errors['email']"> Invalid Email .</span>
+                                    </mat-error>
+                                    <mat-error></mat-error> 
+                                  </mat-form-field>
+                                 
+                            </div>
+                            <div class=" py-3 ">
+                                <mat-form-field appearance="outline" class="bg-white" style="width:209px;height:56px">
+                                    <mat-label class="text-black">Password</mat-label>
+                                    <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Password">
+                                    <a class="p-2 outline-none" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    </a>
+                                    <mat-error *ngIf="f['password'].touched && f['password'].invalid" class="text-danger">
+                                        <span *ngIf="f['password'].errors && f['password'].errors['required']">Password required.</span>
+                                      
+                                    </mat-error>
+                                  </mat-form-field>
+                                
+                            </div>
+                            <div class="py-2 d-flex align-items-center justify-content-center">
+                                <button [disabled]="loginForm.invalid" [class.disabled]="loginForm.invalid" type="submit" mat-raised-button class="text-white" style="background-color: 
+                                #F4881F;  width:100px;height:37px;
+                                cursor: pointer;
+                              "><span class="ms-3 text-white" >Login</span></button>
+                            </div>
+                        </form>
+                           </div>
+                          </mat-card>
+                    </div>
+                   </div>
+                </div>
+            </div>
+              
+        </div>
+    </div>
+</section>

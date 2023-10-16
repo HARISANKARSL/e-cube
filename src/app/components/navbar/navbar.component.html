@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="navbar">
+        <nav>
+            
+                <img src="./assets/images/logo.png" alt="">
+            
+           
+        </nav>
+        <div [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+</div>
+
+  <mat-menu #menu="matMenu" class="matmenu">
+    <button mat-menu-item  class="my-2" >
+      <mat-icon>dialpad</mat-icon>
+      <span >Create a Batch</span>
+    </button>
+
+    <button mat-menu-item class="my-2">
+        <mat-icon >delete</mat-icon>
+      <span >Delete a Batch</span>
+    </button>
+  
+  </mat-menu>

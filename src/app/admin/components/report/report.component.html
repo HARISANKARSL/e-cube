@@ -1,0 +1,21 @@
+
+<div class="container d-flex align-items-center justify-content-center" >
+   
+            <mat-card class="example-card  p-5"  >
+              <h4 class="text-center">Name:Hafiz</h4>
+              <h4 class="text-center">Class:+2</h4>
+              <div class="grid-item">
+            
+                <div class="py-2" *ngFor="let items of allReport">
+                <img mat-card-image src="{{items.img}}" alt="" width="220px" height="150px">
+                <div class="p-2">
+                  <p>{{items.title}}</p>
+                </div>
+              </div> 
+            </div>
+          
+              </mat-card>
+              
+         
+    </div>
+

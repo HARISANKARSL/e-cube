@@ -1,0 +1,26 @@
+  
+<div class="container">
+
+<div class="logo text-center">
+   <img src="./assets/images/sap.png" alt=""> 
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-3 py-3" *ngFor="let items of item">
+      <div class="card-sec mx-5">
+        <mat-card class="example-card " routerLink="{{items.route}}">
+        
+            <img mat-card-image src="{{items.img}}" alt="">
+           
+          
+          </mat-card>
+          <div class="p-2">
+            <p>{{items.title}}</p>
+          </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>

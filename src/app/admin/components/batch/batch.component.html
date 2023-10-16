@@ -1,0 +1,20 @@
+
+<div class="container">
+<div class="row">
+    <div class="text-center">
+        <h1>Batch</h1>
+    </div>
+    <div class="col-sm-12 col-md-4 p-3" *ngFor="let items of batch">
+       <div class="batch mx-5">
+       
+        <mat-card (click)="getById(items.class_name)">
+            <mat-card-content class="text-center ">
+             <h2 class="text-white">{{items.class_name}}</h2>
+            </mat-card-content>
+          </mat-card>
+       </div>
+          
+    </div>
+</div>
+      
+</div>

@@ -1,0 +1,17 @@
+.navbar img{
+  
+    width: 113px;
+cursor: pointer;
+height:80px ;
+
+}
+.navbar .fa-bars{
+font-size: 36px;
+cursor: pointer;
+}
+.matmenu button:hover{
+    background-color: aqua !important;
+}
+
+
+  

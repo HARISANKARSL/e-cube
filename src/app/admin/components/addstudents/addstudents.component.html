@@ -1,0 +1,88 @@
+<div>
+    <div class="container addstudents">
+      <form class="example-form" [formGroup]="addStudents" (ngSubmit)="addStudent()">
+        <h1>Add New Student</h1>
+      <div>
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <mat-form-field class="example-full-width">
+              <mat-label>Full Name</mat-label>
+              <input matInput formControlName="name">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <mat-form-field class="example-full-width">
+              <mat-label>Phone Number</mat-label>
+              <input matInput type="number"  formControlName="phone_no">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <mat-form-field class="example-full-width">
+              <mat-label>School Name</mat-label>
+              <input matInput formControlName="school_name">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <mat-form-field class="example-full-width">
+              <mat-label>Admission Number</mat-label>
+              <input matInput type="number" formControlName="admission_no">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+         
+          <div class="col-sm-12 col-md-12">
+            <mat-form-field class="example-full-width">
+              <mat-label>Subjects</mat-label>
+              
+              <input matInput type="text" formControlName="subjects">
+              
+      
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+  
+  <div class="row">
+    <div class="col-sm-12 col-lg-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>Class</mat-label>
+        <select matNativeControl required formControlName="class_name">
+          <option value="10">10</option>
+          <option value="11">Plus one</option>
+          <option value="12">Plus two</option>
+     
+        </select>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 col-lg-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>Division</mat-label>
+        <select matNativeControl required formControlName="division">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-12 col-lg-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>Year</mat-label>
+        <input matInput placeholder="Ex. San Francisco" type="number" formControlName="batch_year">
+      </mat-form-field>
+    </div>
+  </div>
+      
+   
+  <div class="text-end">
+    <button type="submit" mat-raised-button color="warn" >Add Student</button>
+  </div>
+      </form>
+     
+            
+    </div>
+</div>
+

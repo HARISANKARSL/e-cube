@@ -1,0 +1,55 @@
+
+<div class="container ">
+    <div class="text-center student-details pb-3">
+        <h1 class="mb-3">Student Details</h1>
+        <div>
+            <button class=" text-white">X-A</button>
+        </div>
+    </div>
+    <div class="">
+   <mat-table [dataSource]="studentData" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>Sl No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="phone_no">
+    <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.phone_no}}  </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="email_id">
+    <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.email_id}}  </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="subjects">
+    <mat-header-cell *matHeaderCellDef> Subjects </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.subjects}}  </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="report">
+    <mat-header-cell *matHeaderCellDef> ACADEMIC REPORT </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button class="btn btn-success mx-2" routerLink="/admin/report">Report</button>  
+      <button class="btn btn-danger mx-2">View</button>  
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+</mat-table>
+
+
+    </div>
+   
+    
+</div>

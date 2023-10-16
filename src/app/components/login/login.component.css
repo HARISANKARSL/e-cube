@@ -1,0 +1,11 @@
+.login-section{
+    width: 100%;
+    height: 100%;
+ 
+}
+mat-card {
+   background-color: #EFEFEF;
+  }
+  mat-form-field a{
+    cursor: pointer;
+  }

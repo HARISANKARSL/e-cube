@@ -1,0 +1,23 @@
+.grid-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 20px;
+}
+.grid-item img{
+    cursor: pointer;
+    overflow: hidden;
+}
+ h4{
+   font-weight: 500;
+   font-size: 16px; 
+   margin: 0  !important;
+
+}
+mat-card{
+    background-color: #0000000D;
+}
+mat-card img:hover {
+    transform: scale(1.1);
+   transition: all;
+ transition-duration: 1s;
+  }
