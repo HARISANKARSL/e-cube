@@ -1,8 +1,10 @@
+import { MatDialog } from '@angular/material/dialog';
 import { StudentsoperationsService } from './../../../services/studentsoperations.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { HomeitemsService } from 'src/app/services/homeitems.service';
+
+import { PopupComponent } from '../shared/popup/popup.component';
+
 
 @Component({
   selector: 'app-batch',
@@ -11,12 +13,14 @@ import { HomeitemsService } from 'src/app/services/homeitems.service';
 })
 export class BatchComponent {
   batch:any=[]
-constructor(private api:StudentsoperationsService,private active:ActivatedRoute,private route:Router){}
+  
+constructor(private api:StudentsoperationsService,private active:ActivatedRoute,private route:Router,private dialog:MatDialog){}
 ngOnInit(){
 
  this.api.getAllClassDetails().subscribe({
   next:(res)=>{
     console.log(res)
+    
     this.batch=res.class_details
     console.log(res)
   },error:(err)=>{
@@ -26,5 +30,16 @@ ngOnInit(){
 }
 getById(id:any){
 this.route.navigate(['/admin/students-details',id])
+
 }
+
+openDialog(){
+  this.dialog.open(PopupComponent, {
+   width:'40%',
+   height:'60vh',
+    enterAnimationDuration:"1000ms",
+    exitAnimationDuration:'1000ms'
+  });}
+
 }
+

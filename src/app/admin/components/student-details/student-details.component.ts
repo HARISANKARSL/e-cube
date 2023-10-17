@@ -11,23 +11,26 @@ import { StudentsoperationsService } from 'src/app/services/studentsoperations.s
 })
 export class StudentDetailsComponent {
 
-  displayedColumns: string[] = ["id","name","phone_no","email_id","subjects","report"]
+  displayedColumns: string[] = ["id","name","phone_no","subjects","report"]
 dataID:any
   dataSource:any=[]
   studentData=[]
   constructor(private api:StudentsoperationsService,private active:ActivatedRoute){}
   ngOnInit(){
+    
    this.active.paramMap.subscribe((params)=>{
    this.dataID =params.get('id')
-   console.log(this.dataID)
-   console.log(this.dataID)
+   
+  
    })
   this.api.getAllStudents().subscribe({
     next:(res)=>{
- 
+
      this.dataSource=res.all_users
    this.studentData=this.dataSource.filter((item:any)=>{
-this.dataID.includes(item.class_name)
+if(this.dataID==item.class_name){
+  return item
+}
 // console.log(item.class_name,"list")
 
    })

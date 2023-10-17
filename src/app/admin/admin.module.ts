@@ -21,12 +21,15 @@ import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
+import { MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ExamResultsComponent } from './components/exam-results/exam-results.component';
 import { DailyClassUpdatesComponent } from './components/daily-class-updates/daily-class-updates.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { AddstudentsComponent } from './components/addstudents/addstudents.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import { PopupComponent } from './components/shared/popup/popup.component';
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -37,7 +40,10 @@ import { AddstudentsComponent } from './components/addstudents/addstudents.compo
     ExamResultsComponent,
     DailyClassUpdatesComponent,
     AttendanceComponent,
-    AddstudentsComponent
+    AddstudentsComponent,
+    PopupComponent,
+
+    
   ],
   imports: [
     CommonModule,
@@ -53,7 +59,10 @@ import { AddstudentsComponent } from './components/addstudents/addstudents.compo
     MatInputModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   MatDialogModule,
+   MatSidenavModule,
+   MatListModule
   ]
 })
 export class AdminModule { }

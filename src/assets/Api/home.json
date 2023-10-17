@@ -14,7 +14,8 @@
      {
         
         "img":"./assets/images/examresults.png",
-        "title":"Exam Results"
+        "title":"Exam Results",
+        "route":"/admin/examresult"
      },
      {
     

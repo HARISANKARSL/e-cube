@@ -1,20 +1,46 @@
 
-<div class="container">
-<div class="row">
-    <div class="text-center">
-        <h1>Batch</h1>
-    </div>
-    <div class="col-sm-12 col-md-4 p-3" *ngFor="let items of batch">
-       <div class="batch mx-5">
+
+           
+ 
        
-        <mat-card (click)="getById(items.class_name)">
-            <mat-card-content class="text-center ">
-             <h2 class="text-white">{{items.class_name}}</h2>
-            </mat-card-content>
-          </mat-card>
-       </div>
-          
-    </div>
-</div>
+       
       
-</div>
+        
+    
+
+
+
+            <div class="container py-5" >
+                <div class="d-flex align-items-center justify-content-between mx-5 ">
+                    <div class="m-0">
+                        <h1 class="m-0">Batch</h1>
+                    </div>
+                    <div class="me-5 pe-5">
+                        <button mat-raised-button  color="warn" (click)="openDialog()"><span>Create A Batch </span><mat-icon>library_add</mat-icon></button>
+                    </div>
+
+                </div>
+                <div class="row py-5">
+                   
+                  
+                    <div class="col-sm-12 col-md-3 p-3" *ngFor="let items of batch">
+                       <div class="batch mx-5">
+                       
+                        <mat-card (click)="getById(items.class_name)">
+                            <mat-card-content class="text-center ">
+                             <h2 class="text-white">{{items.class_name}}</h2>
+                            </mat-card-content>
+                          </mat-card>
+                          
+                       </div>
+                       
+                    </div>
+                </div>
+             
+                <div>
+                   
+                </div>
+                      
+                </div>
+         
+

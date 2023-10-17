@@ -16,14 +16,18 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
-
+import { MatDialogModule} from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
 import {MatMenuModule} from '@angular/material/menu';
+import { PopupComponent } from './components/shared/popup/popup.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    PopupComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -32,15 +36,16 @@ import {MatMenuModule} from '@angular/material/menu';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
+    MatDialogModule,
     MatGridListModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatMenuModule
-
+    MatMenuModule,
+    
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

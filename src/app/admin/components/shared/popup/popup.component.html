@@ -1,0 +1,55 @@
+<div class="container ">
+  <div class="text-end py-1 closebtn">
+    <mat-icon (click)="closepopup()">highlight_off</mat-icon>
+  </div>
+    <div class="popup">
+     
+        <div class="mt-5">
+            <form class="example-form " [formGroup]="addBatchForm"  >
+    
+      <div class="py-2">
+        <h1>Add Batch</h1>
+      </div>
+        
+                <div class="row ">
+                   <div class="col-sm-12 col-lg-6 ">
+                       <mat-form-field appearance="outline" class="example-full-width">
+                           <mat-label>Class Name</mat-label>
+                           <input matInput formControlName="class_name">
+                         </mat-form-field>
+                   </div>
+                   <div class="col-sm-12 col-lg-6 ">
+                       <mat-form-field appearance="outline" class="example-full-width">
+                           <mat-label>Division</mat-label>
+                           <input matInput formControlName="division">
+                         </mat-form-field>
+                   </div>
+                </div>
+                <div class="row ">
+                   <div class="col-sm-12 col-lg-6 ">
+                       <mat-form-field appearance="outline" class="example-full-width">
+                           <mat-label>Subject</mat-label>
+                           <input matInput formControlName="subjects">
+                         </mat-form-field>
+                   </div>
+                   <div class="col-sm-12 col-lg-6 ">
+                       <mat-form-field appearance="outline" class="example-full-width">
+                           <mat-label>Batch Year</mat-label>
+                           <input matInput formControlName="batch_year">
+                         </mat-form-field>
+                   </div>
+                </div>
+             
+            
+             
+             </form>
+             
+           <div mat-dialog-actions class="d-flex align-items-end justify-content-end mt-5">
+               <button mat-raised-button type="submit" (click)="addBatch()"  color="primary">Save</button>
+               <button (click)="closepopup()" mat-raised-button color="warn">Cancel</button>
+            
+           </div>
+        </div>
+  
+    </div>
+</div>

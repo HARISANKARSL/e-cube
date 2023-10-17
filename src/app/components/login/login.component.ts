@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder,FormControl,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent {
   hide = true;
   loginForm!:FormGroup
-constructor(private fb:FormBuilder,private route :Router,private auth:AuthService){}
+constructor(private fb:FormBuilder,private route :Router,private auth:AuthService,private toast:ToastrService){}
 
 
 ngOnInit(){
@@ -25,14 +26,15 @@ get f(){
   return this.loginForm.controls;
 }
 
-login(){
+async login(){
 this.auth.adminLogin(this.loginForm.value).subscribe({
-  next:(res)=>{
-   
+  next:async (res)=>{
+   this.toast.success(' Success',"Login Success")
   localStorage.setItem("token",res.access_token)
-    this.route.navigate(['/admin/admin-home-page'])
+    res=await this.route.navigate (['/admin/admin-home-page'])
    },
    error:(err)=>{
+    this.toast.error("Invalid Email Or Password","Login Failed")
    
     console.log(err)
    }

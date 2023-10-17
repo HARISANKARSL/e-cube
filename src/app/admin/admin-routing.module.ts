@@ -5,6 +5,7 @@ import { BatchComponent } from './components/batch/batch.component';
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
 import { ReportComponent } from './components/report/report.component';
 import { AddstudentsComponent } from './components/addstudents/addstudents.component';
+import { ExamResultsComponent } from './components/exam-results/exam-results.component';
 
 const routes: Routes = [
  {
@@ -25,6 +26,8 @@ redirectTo:"/admin-home-page",pathMatch:"full"
   },
   {
     path:"addstudents",component:AddstudentsComponent
+  },{
+path:"examresult",component:ExamResultsComponent
   }
 ];
 

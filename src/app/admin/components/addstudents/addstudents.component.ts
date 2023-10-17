@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 import { StudentsoperationsService } from 'src/app/services/studentsoperations.service';
@@ -14,7 +14,7 @@ export class AddstudentsComponent {
   toppings = new FormControl('');
   toppingList:string[] = ['Maths', 'Physics', 'Chemistry', 'Biology', 'Accountancy', 'English'];
   addStudents!:FormGroup
-  constructor(private fb:FormBuilder,private route :Router,private api:StudentsoperationsService){}
+  constructor(private route :Router,private api:StudentsoperationsService){}
 ngOnInit(){
   this.addStudents=new FormGroup({
     name:new FormControl("",Validators.required),
@@ -27,7 +27,7 @@ ngOnInit(){
 
     class_name:new FormControl("",Validators.required),
     division:new FormControl("",Validators.required),
-    batch_year:new FormControl("",[Validators.required]),
+    batch_year:new FormControl("",Validators.required),
   })
 }
 addStudent(){

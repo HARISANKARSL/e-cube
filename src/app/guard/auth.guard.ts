@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
  
     return true
    }else{
-    this.route.navigate(['sap-login'])
+    this.route.navigate(['/sap-login'])
     return false
    }
   }
