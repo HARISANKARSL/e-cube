@@ -9,7 +9,9 @@
      {
    
         "img":"./assets/images/dailyclass.png",
-        "title":"Daily Class"
+        "title":"Daily Class",
+        "route":"/admin/daily-class-updates"
+       
      },
      {
         

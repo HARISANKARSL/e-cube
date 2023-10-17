@@ -1,0 +1,50 @@
+<div class="container ">
+    <div class="text-end py-1 closebtn">
+      <mat-icon (click)="closepopup()">highlight_off</mat-icon>
+    </div>
+      <div class="popup">
+       
+          <div class="mt-5">
+              <form class="example-form " [formGroup]="addBatchForm"  >
+      
+        <div class="py-2">
+          <h1>Add Exam</h1>
+        </div>
+          
+                  <div class="row ">
+                     <div class="col-sm-12 col-lg-6 ">
+                         <mat-form-field appearance="outline" class="example-full-width">
+                             <mat-label>Exam Name</mat-label>
+                             <input matInput formControlName="class_name">
+                           </mat-form-field>
+                     </div>
+                     <div class="col-sm-12 col-lg-6 ">
+                         <mat-form-field appearance="outline" class="example-full-width">
+                             <mat-label>Division</mat-label>
+                             <input matInput formControlName="division">
+                           </mat-form-field>
+                     </div>
+                  </div>
+                  <div>
+                    <mat-form-field class="example-full-width">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker  #picker></mat-datepicker>
+</mat-form-field>
+                  </div>
+               
+              
+               
+               </form>
+               
+             <div mat-dialog-actions class="d-flex align-items-end justify-content-end mt-5">
+                 <button mat-raised-button type="submit" (click)="addBatch()"  color="primary">Save</button>
+                 <button (click)="closepopup()" mat-raised-button color="warn">Cancel</button>
+              
+             </div>
+          </div>
+    
+      </div>
+  </div>

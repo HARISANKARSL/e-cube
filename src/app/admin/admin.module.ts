@@ -30,6 +30,9 @@ import { AddstudentsComponent } from './components/addstudents/addstudents.compo
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { PopupComponent } from './components/shared/popup/popup.component';
+import { AddexamComponent } from './components/shared/addexam/addexam.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -42,6 +45,7 @@ import { PopupComponent } from './components/shared/popup/popup.component';
     AttendanceComponent,
     AddstudentsComponent,
     PopupComponent,
+    AddexamComponent,
 
     
   ],
@@ -62,7 +66,9 @@ import { PopupComponent } from './components/shared/popup/popup.component';
     ReactiveFormsModule,
    MatDialogModule,
    MatSidenavModule,
-   MatListModule
+   MatListModule,
+   MatDatepickerModule,
+   MatNativeDateModule
   ]
 })
 export class AdminModule { }

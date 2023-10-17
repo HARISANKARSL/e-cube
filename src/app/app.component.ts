@@ -12,7 +12,7 @@ export class AppComponent {
 constructor(private route:Router){
   route.events.subscribe((val)=>{
     if(val instanceof NavigationEnd){
-      if(val.url=='/sap-login'   ){
+      if(val.url=='/sap-login' || val.url===''  ){
         this.showHeader=false
       }else{
         this.showHeader=true

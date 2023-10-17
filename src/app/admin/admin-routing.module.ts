@@ -6,6 +6,7 @@ import { StudentDetailsComponent } from './components/student-details/student-de
 import { ReportComponent } from './components/report/report.component';
 import { AddstudentsComponent } from './components/addstudents/addstudents.component';
 import { ExamResultsComponent } from './components/exam-results/exam-results.component';
+import { DailyClassUpdatesComponent } from './components/daily-class-updates/daily-class-updates.component';
 
 const routes: Routes = [
  {
@@ -28,6 +29,8 @@ redirectTo:"/admin-home-page",pathMatch:"full"
     path:"addstudents",component:AddstudentsComponent
   },{
 path:"examresult",component:ExamResultsComponent
+  },{
+    path:'daily-class-updates',component:DailyClassUpdatesComponent
   }
 ];
 
