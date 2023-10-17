@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import {MatMenuModule} from '@angular/material/menu';
@@ -36,7 +36,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   declarations: [
     AdminHomeComponent,
-    NavbarComponent,
+  
     BatchComponent,
     StudentDetailsComponent,
     ReportComponent,

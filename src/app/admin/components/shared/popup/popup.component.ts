@@ -33,6 +33,7 @@ this.api.addNewBatch(this.addBatchForm.value).subscribe({
 this.toast.success("Successfully created class group and associated feature group","Success")
 this.closepopup()
 this.addBatchForm.reset()
+this.reloadpagefunc()
     }else{
       
     }
@@ -42,6 +43,9 @@ this.addBatchForm.reset()
     this.toast.error(err.message)
   }
 })
+}
+reloadpagefunc(){
+  return  window.location.reload();
 }
 
 }

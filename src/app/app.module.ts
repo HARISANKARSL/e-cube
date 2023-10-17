@@ -19,14 +19,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import {MatMenuModule} from '@angular/material/menu';
-import { PopupComponent } from './components/shared/popup/popup.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    PopupComponent,
+    
   
   ],
   imports: [

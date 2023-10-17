@@ -26,7 +26,7 @@ get f(){
   return this.loginForm.controls;
 }
 
-async login(){
+ login(){
 this.auth.adminLogin(this.loginForm.value).subscribe({
   next:async (res)=>{
    this.toast.success(' Success',"Login Success")

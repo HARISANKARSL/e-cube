@@ -15,7 +15,7 @@
                     <div class="m-0">
                         <h1 class="m-0">Batch</h1>
                     </div>
-                    <div class="me-5 pe-5">
+                    <div class="me-5 pe-5" *ngIf="show">
                         <button mat-raised-button  color="warn" (click)="openDialog()"><span>Create A Batch </span><mat-icon>library_add</mat-icon></button>
                     </div>
 
@@ -36,6 +36,20 @@
                        
                     </div>
                 </div>
+                <div>
+                    <div class="text-center" *ngIf="!show">
+                        <div>
+                            <div>
+                                <p>Click  below to ceate your first batch </p>
+                            </div>
+                            <div class="">
+                                <button mat-raised-button  color="warn" (click)="openDialog()"><span>Create A Batch </span><mat-icon>library_add</mat-icon></button>
+                            </div>
+                        </div>
+                      
+                    </div>
+                    </div>
+                   
              
                 <div>
                    

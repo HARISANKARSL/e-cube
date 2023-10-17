@@ -13,6 +13,7 @@ import { PopupComponent } from '../shared/popup/popup.component';
 })
 export class BatchComponent {
   batch:any=[]
+  show:boolean=true
   
 constructor(private api:StudentsoperationsService,private active:ActivatedRoute,private route:Router,private dialog:MatDialog){}
 ngOnInit(){
@@ -22,7 +23,9 @@ ngOnInit(){
     console.log(res)
     
     this.batch=res.class_details
-    console.log(res)
+    if(this.batch.length===0){
+      this.show=false
+    }
   },error:(err)=>{
     console.log(err)
   }
