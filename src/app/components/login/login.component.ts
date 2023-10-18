@@ -31,6 +31,7 @@ this.auth.adminLogin(this.loginForm.value).subscribe({
   next:async (res)=>{
    this.toast.success(' Success',"Login Success")
   localStorage.setItem("token",res.access_token)
+  localStorage.setItem('refreshtoken',res.refresh_token)
     res=await this.route.navigate (['/admin/admin-home-page'])
    },
    error:(err)=>{
