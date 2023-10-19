@@ -26,10 +26,19 @@
                     <div class="col-sm-12 col-md-3 p-3" *ngFor="let items of batch">
                        <div class="batch mx-5">
                        
-                        <mat-card (click)="getById(items.class_name)">
-                            <mat-card-content class="text-center ">
+                        <mat-card >
+                            <mat-card-content class="text-center " (click)="getById(items.class_name)">
                              <h2 class="text-white">{{items.class_name}}</h2>
                             </mat-card-content>
+                         <div class="d-flex gap-3 my-3">
+                            <div>
+                                <button  mat-raised-button  (click)="update(items.id)"><mat-icon>create</mat-icon></button>
+                            </div>
+                            <div>
+                                <button  mat-raised-button  >   <mat-icon >delete</mat-icon></button>
+                            </div>
+                         </div>
+                        
                           </mat-card>
                           
                        </div>

@@ -36,7 +36,7 @@ this.auth.adminLogin(this.loginForm.value).subscribe({
    },
    error:(err)=>{
     this.toast.error("Invalid Email Or Password","Login Failed")
-   
+   this.loginForm.reset()
     console.log(err)
    }
    

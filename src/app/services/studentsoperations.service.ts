@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class StudentsoperationsService {
-
+setValue=[]
   constructor( private http:HttpClient) { }
   getAllClassDetails(){
     return this.http.get<any>('http://13.200.38.169:8002/register/admin/get/class/details/'  )
@@ -22,6 +22,16 @@ export class StudentsoperationsService {
   }
   addNewBatch(data:any){
     return this.http.post<any>('http://13.200.38.169:8002/register/admin/add/class/details/',data)
+  }
+  updateBatch(id:any){
+    return this.http.put<any>('http://13.200.38.169:8002/register/admin/update/class/details/',id)
+  }
+  setUpdatedValue(data:any){
+this.setValue=data
+
+  }
+  getUpdatedValue(){
+    return this.setValue
   }
 
 }
