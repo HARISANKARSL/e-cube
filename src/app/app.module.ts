@@ -21,7 +21,8 @@ import { ToastrModule } from 'ngx-toastr';
 import {MatMenuModule} from '@angular/material/menu';
 import { UpdatebatchComponent } from './components/shared/updatebatch/updatebatch.component';
 
-
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,10 @@ import { UpdatebatchComponent } from './components/shared/updatebatch/updatebatc
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+   
+     MatTableModule,
+ 
+      MatPaginatorModule,
     
     ToastrModule.forRoot(),
   ],

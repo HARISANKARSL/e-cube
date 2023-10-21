@@ -37,7 +37,7 @@
                             <div>
                                
                             </div>
-                            <input type="file">
+                            <input type="file" (change)="uploadImage($event)">
                         </div>
                        </div>
                      
@@ -50,7 +50,7 @@
                
                 <div>
                     <div class="text-center">
-                        <button mat-raised-button color="warn" class="p-4" >Upload</button>
+                        <button mat-raised-button color="warn" class="p-4" (click)="uploadData()" >Upload</button>
                        </div>
                 </div>
             </div>

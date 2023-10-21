@@ -33,5 +33,10 @@ this.setValue=data
   getUpdatedValue(){
     return this.setValue
   }
+  deleteEmployee(id: number){
+    return this.http.delete(`http://13.200.38.169:8002/register/admin/delete/class/details/`, { responseType: 'text'  });
+  }
+
+
 
 }

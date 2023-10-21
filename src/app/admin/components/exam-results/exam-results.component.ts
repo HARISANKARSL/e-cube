@@ -4,42 +4,30 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { StudentsoperationsService } from 'src/app/services/studentsoperations.service';
 import { AddexamComponent } from '../shared/addexam/addexam.component';
-
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule} from '@angular/material/table';
+import * as XLSX from 'xlsx'
+import { TestService } from 'src/app/services/test.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-exam-results',
   templateUrl: './exam-results.component.html',
   styleUrls: ['./exam-results.component.css']
 })
 export class ExamResultsComponent {
-  
- ELEMENT_DATA= [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-    {position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na'},
-    {position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg'},
-    {position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al'},
-    {position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si'},
-    {position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P'},
-    {position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S'},
-    {position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl'},
-    {position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar'},
-    {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
-    {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
-  ];
-  constructor(api:StudentsoperationsService,private dialog:MatDialog){}
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 
+allBatch:any
+  excelData:any
+  apiData: any=[];
+
+
+  constructor(private api:StudentsoperationsService,private dialog:MatDialog,private test:TestService,private http:HttpClient){}
+  displayedColumns = ['slno', 'name', 'subject', 'mark'];
+  pagination:number=1;
+itemsPerPage:number=6  
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  dataSource: any=this.ELEMENT_DATA
-
+  
+  ELEMENT_DATA:any;
  
   openDialog(){
     this.dialog.open(AddexamComponent, {
@@ -48,4 +36,30 @@ export class ExamResultsComponent {
       enterAnimationDuration:"500ms",
       exitAnimationDuration:'1000ms'
     });}
+    
+
+   
+    uploadImage(event:any){
+  let file = event.target.files[0];
+  let fileReader= new FileReader();
+  fileReader.readAsBinaryString(file)
+  fileReader.onload=(e)=>{
+    var workbook=XLSX.read(fileReader.result,{type:'binary'});
+    var sheetName=workbook.SheetNames;
+    this.excelData= XLSX.utils.sheet_to_json(workbook.Sheets[sheetName[0]])
+  }
+  }
+  ngOnInit(){
+    this.api.getAllClassDetails().subscribe((res)=>{
+      this.allBatch=res.class_details
+   
+      
+    })
+    this.http.get('http://localhost:3000/posts').subscribe((data: any) => {
+      this.apiData = data.posts[0]; // Modify this to access the appropriate data in your JSON response
+      console.log(this.apiData)
+    });
+  }
+  
+ 
 }

@@ -3,6 +3,7 @@ import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 import { StudentsoperationsService } from 'src/app/services/studentsoperations.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addstudents',
@@ -14,7 +15,7 @@ export class AddstudentsComponent {
   toppings = new FormControl('');
   toppingList:string[] = ['Maths', 'Physics', 'Chemistry', 'Biology', 'Accountancy', 'English'];
   addStudents!:FormGroup
-  constructor(private route :Router,private api:StudentsoperationsService){}
+  constructor(private route :Router,private api:StudentsoperationsService,private toast:ToastrService){}
 ngOnInit(){
   this.addStudents=new FormGroup({
     name:new FormControl("",Validators.required),
@@ -33,9 +34,14 @@ ngOnInit(){
 addStudent(){
 this.api.addNewStudent(this.addStudents.value).subscribe({
   next:(res)=>{
-    console.log(this.addStudents.value)
+    if(this.addStudents.valid){
+      this.toast.success('Successfully created','Success')
+    this.addStudents.reset()
+    }
+    
   },error:(err)=>{
-    console.log(err)
+    this.toast.error('field cant be empty','Error')
+
   }
 })
 }

@@ -36,8 +36,13 @@ this.api.addNewBatch(this.addBatchForm.value).subscribe({
     
     if(this.addBatchForm.valid ){
 this.toast.success("Successfully created class group and associated feature group","Success")
+
 this.closepopup()
-this.addBatchForm.reset()
+
+setInterval(() => {
+  this.addBatchForm.reset()
+}, 5000);
+
 this.reloadpagefunc()
     }else{
       

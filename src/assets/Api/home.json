@@ -22,17 +22,20 @@
      {
     
         "img":"./assets/images/attendance.png",
-        "title":"Attendance"
+        "title":"Attendance",
+        "route":"/admin/add-attendance"
      },
      {
     
         "img":"./assets/images/chatbot.png",
-        "title":"Chat Box"
+        "title":"Chat Box",
+        "route":"/admin/chatbox"
      },
      {
  
         "img":"./assets/images/leadrboard.png",
-        "title":"Leader Board"
+        "title":"Leader Board",
+        "route":"/admin/leader-board"
      },
      {
        
@@ -43,7 +46,8 @@
      {
      
         "img":"./assets/images/helpcenter.png",
-        "title":"Help Center"
+        "title":"Help Center",
+        "route":"/admin/help-center"
      }
 ],
 "batchs":[

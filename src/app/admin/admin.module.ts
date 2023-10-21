@@ -33,6 +33,10 @@ import { PopupComponent } from './components/shared/popup/popup.component';
 import { AddexamComponent } from './components/shared/addexam/addexam.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { ChatboxComponent } from './components/chatbox/chatbox.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { HelpCenterComponent } from './components/help-center/help-center.component';
+import { LeaderBoardComponent } from './components/leader-board/leader-board.component';
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -46,6 +50,10 @@ import {MatNativeDateModule} from '@angular/material/core';
     AddstudentsComponent,
     PopupComponent,
     AddexamComponent,
+    ChatboxComponent,
+    LeaderboardComponent,
+    HelpCenterComponent,
+    LeaderBoardComponent,
 
     
   ],

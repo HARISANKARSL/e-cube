@@ -31,7 +31,7 @@ dataID:any
 if(this.dataID==item.class_name){
   return item
 }
-// console.log(item.class_name,"list")
+
 
    })
    console.log(this.dataSource)

@@ -40,7 +40,7 @@ this.route.navigate(['/admin/students-details',id])
 
 openDialog(){
   this.dialog.open(PopupComponent, {
-   width:'40%',
+   
    height:'60vh',
     enterAnimationDuration:"1000ms",
     exitAnimationDuration:'1000ms'
@@ -54,4 +54,13 @@ openDialog(){
   this.api.setUpdatedValue(current)
 
 }
+deleteBatch(id:any){
+  this.api.deleteEmployee(id).subscribe((res)=>{
+    console.log(res)
+  })
+ 
+console.log(id)
+}
+  
+
 }
