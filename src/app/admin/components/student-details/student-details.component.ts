@@ -13,6 +13,7 @@ export class StudentDetailsComponent {
 
   displayedColumns: string[] = ["id","name","phone_no","subjects","report"]
 dataID:any
+students_details:any
   dataSource:any=[]
   studentData=[]
   constructor(private api:StudentsoperationsService,private active:ActivatedRoute){}
@@ -27,16 +28,21 @@ dataID:any
     next:(res)=>{
 
      this.dataSource=res.all_users
+    
    this.studentData=this.dataSource.filter((item:any)=>{
+   console.log(item.class_name)
 if(this.dataID==item.class_name){
+  this.students_details=this.dataID
+
+  
   return item
 }
 
 
    })
-   console.log(this.dataSource)
+ 
     },error:(err)=>{
-      console.log(err)
+      
     }
    })
   }

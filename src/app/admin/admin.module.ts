@@ -37,6 +37,7 @@ import { ChatboxComponent } from './components/chatbox/chatbox.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { HelpCenterComponent } from './components/help-center/help-center.component';
 import { LeaderBoardComponent } from './components/leader-board/leader-board.component';
+import { DeletealertComponent } from './components/shared/deletealert/deletealert.component';
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -54,6 +55,7 @@ import { LeaderBoardComponent } from './components/leader-board/leader-board.com
     LeaderboardComponent,
     HelpCenterComponent,
     LeaderBoardComponent,
+    DeletealertComponent,
 
     
   ],

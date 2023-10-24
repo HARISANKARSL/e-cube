@@ -30,3 +30,16 @@ font-weight: 400;
 font-size: 32px;
 
 }
+.deletebatchModel mat-icon{
+    cursor: pointer !important;
+}
+@media only screen and (max-width: 600px) {
+    .createbatch {
+     padding:0 10px !important;
+     margin: 0 !important;
+    
+    }
+    .createbatch button{
+        width: 150px !important;
+    }
+  }

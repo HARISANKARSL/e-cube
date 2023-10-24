@@ -45,33 +45,40 @@
         </div>
       </div>
   
-  <div class="row">
+  <div class="row" >
     <div class="col-sm-12 col-lg-4">
       <mat-form-field class="example-full-width">
         <mat-label>Class</mat-label>
-        <select matNativeControl required formControlName="class_name">
-          <option value="10">10</option>
-          <option value="11">Plus one</option>
-          <option value="12">Plus two</option>
-     
-        </select>
+        
+      
+                  
+          <mat-label>Choose an option</mat-label>
+          <mat-select >
+            <ng-container *ngFor="let data of allClassDetails.class_details">
+              <mat-option value="{{data.class_name}}">{{data.class_name}}</mat-option>
+            </ng-container>
+            
+            
+          </mat-select>
+       
       </mat-form-field>
     </div>
     <div class="col-sm-12 col-lg-4">
       <mat-form-field class="example-full-width">
         <mat-label>Division</mat-label>
-        <select matNativeControl required formControlName="division">
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="D">D</option>
-        </select>
+        <mat-select matNativeControl required formControlName="division" >
+          <ng-container *ngFor="let data of allClassDetails.class_details">
+            <mat-option value="{{data.division}}">{{data.division}}</mat-option>
+          </ng-container>
+          
+         
+        </mat-select>
       </mat-form-field>
     </div>
     <div class="col-sm-12 col-lg-4">
       <mat-form-field class="example-full-width">
         <mat-label>Year</mat-label>
-        <input matInput placeholder="Ex. San Francisco" type="number" formControlName="batch_year">
+        <input matInput type="number" formControlName="batch_year">
       </mat-form-field>
     </div>
   </div>

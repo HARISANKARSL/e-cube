@@ -1,14 +1,21 @@
-.student-details button{
-    background-color: #F4881F;
-    width: 100px !important;
-    height: 28px !important;
-    outline: none !important;
-    border: none !important;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 15px;
-    font-family: 'Poppins', sans-serif;
+.student-details .stdntdtls{
 
+  display: flex !important;
+  align-items:center !important ;
+  justify-content: center !important;
+    
+    
+
+}
+ .stdntdtls p{
+  background-color: #F4881F;
+  padding: 10px !important;
+  outline: none !important;
+  border: none !important;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
 }
 .mat-mdc-table {
     width: 100%;

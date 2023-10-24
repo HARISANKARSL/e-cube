@@ -59,7 +59,7 @@ reloadpagefunc(){
 }
 addUpdate(){
   this.updateValue=this.api.getUpdatedValue()
-  console.log(this.updateValue,"updated value")
+
   if(this.updateValue){
     this.hide=true
     this.show=false

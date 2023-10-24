@@ -15,7 +15,7 @@
                     <div class="m-0">
                         <h1 class="m-0">Batch</h1>
                     </div>
-                    <div class="me-5 pe-5" *ngIf="show">
+                    <div class="createbatch me-5 pe-5" *ngIf="show">
                         <button mat-raised-button  color="warn" (click)="openDialog()"><span>Create A Batch </span><mat-icon>library_add</mat-icon></button>
                     </div>
 
@@ -35,12 +35,33 @@
                                 <button  mat-raised-button  (click)="update(items.id)"><mat-icon>create</mat-icon></button>
                             </div>
                             <div>
-                                <button  mat-raised-button  (click)="deleteBatch(items.id)">   <mat-icon >delete</mat-icon></button>
+                                <button  mat-raised-button    data-bs-toggle="modal" data-bs-target="#staticBackdrop">   <mat-icon >delete</mat-icon></button>
                             </div>
                          </div>
+                         
                         
                           </mat-card>
-                          
+                        <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade deletebatchModel" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="text-end p-2">
+            <mat-icon data-bs-dismiss="modal">clear</mat-icon>
+        </div>
+        <div class="modal-body text-center">
+         <h3>  Are you sure you want to delete the bathc <b >{{items.class_name}} {{items.division}} </b>?</h3>
+          </div>
+        
+        <div class="text-end p-3">
+          <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary mx-2" (click)="deleteBatch(items.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
                        </div>
                        
                     </div>

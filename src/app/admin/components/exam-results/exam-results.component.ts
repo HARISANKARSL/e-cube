@@ -8,7 +8,6 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule} from '@angular/material/table';
 import * as XLSX from 'xlsx'
 import { TestService } from 'src/app/services/test.service';
-import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-exam-results',
   templateUrl: './exam-results.component.html',
@@ -18,10 +17,9 @@ export class ExamResultsComponent {
 
 allBatch:any
   excelData:any
-  apiData: any=[];
 
 
-  constructor(private api:StudentsoperationsService,private dialog:MatDialog,private test:TestService,private http:HttpClient){}
+  constructor(private api:StudentsoperationsService,private dialog:MatDialog,private test:TestService){}
   displayedColumns = ['slno', 'name', 'subject', 'mark'];
   pagination:number=1;
 itemsPerPage:number=6  
@@ -31,7 +29,7 @@ itemsPerPage:number=6
  
   openDialog(){
     this.dialog.open(AddexamComponent, {
-     width:'40%',
+    
      height:'60vh',
       enterAnimationDuration:"500ms",
       exitAnimationDuration:'1000ms'
@@ -52,13 +50,15 @@ itemsPerPage:number=6
   ngOnInit(){
     this.api.getAllClassDetails().subscribe((res)=>{
       this.allBatch=res.class_details
-   
+      console.log(this.allBatch)
       
     })
-    this.http.get('http://localhost:3000/posts').subscribe((data: any) => {
-      this.apiData = data.posts[0]; // Modify this to access the appropriate data in your JSON response
-      console.log(this.apiData)
-    });
+    this.test.getMark().subscribe((res:any)=>{
+    const convert=res.flat()
+      this.ELEMENT_DATA=convert
+      console.log(this.ELEMENT_DATA)
+      
+    })
   }
   
  

@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { PopupComponent } from '../shared/popup/popup.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class BatchComponent {
   alldata:[]=[]
   updated:any
   
-constructor(private api:StudentsoperationsService,private active:ActivatedRoute,private route:Router,private dialog:MatDialog){}
+constructor(private api:StudentsoperationsService,private active:ActivatedRoute,private route:Router,private dialog:MatDialog,private toast:ToastrService){}
 ngOnInit(){
 
  this.api.getAllClassDetails().subscribe({
@@ -54,13 +55,18 @@ openDialog(){
   this.api.setUpdatedValue(current)
 
 }
-deleteBatch(id:any){
+deleteBatch(id:number){
   this.api.deleteEmployee(id).subscribe((res)=>{
     console.log(res)
+    this.toast.success('Batch Deleted Succesfully','Deleted')
+    this.reloadpagefunc()
+  
   })
  
 console.log(id)
 }
-  
+reloadpagefunc(){
+  return  window.location.reload();
+}
 
 }

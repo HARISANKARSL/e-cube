@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./addstudents.component.css']
 })
 export class AddstudentsComponent {
-
+allClassDetails:any=[]
   toppings = new FormControl('');
   toppingList:string[] = ['Maths', 'Physics', 'Chemistry', 'Biology', 'Accountancy', 'English'];
   addStudents!:FormGroup
@@ -30,8 +30,17 @@ ngOnInit(){
     division:new FormControl("",Validators.required),
     batch_year:new FormControl("",Validators.required),
   })
+
+  this.api.getAllClassDetails().subscribe({
+    next:(res)=>{
+    
+      this.allClassDetails=res
+      console.log(this.allClassDetails,"asds")
+    }
+  })
 }
 addStudent(){
+
 this.api.addNewStudent(this.addStudents.value).subscribe({
   next:(res)=>{
     if(this.addStudents.valid){
