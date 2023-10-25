@@ -8,12 +8,14 @@ import { StudentsoperationsService } from 'src/app/services/studentsoperations.s
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent {
+  studentvaludebyid:any
   getStudents=[]
   allReport:any =[]
 constructor(private api:HomeitemsService,private service:StudentsoperationsService){}
 ngOnInit(){
   this.service.getStudentsById().subscribe({
     next:(res)=>{
+      console.log(res)
 console.log(res.id)
     },error:(err)=>{
 console.log(err)
@@ -23,5 +25,7 @@ console.log(err)
 this.allReport=res.report
 console.log(this.allReport)
   })
+
+
 }
 }

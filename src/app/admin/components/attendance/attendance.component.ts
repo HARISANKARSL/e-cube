@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { StudentsoperationsService } from 'src/app/services/studentsoperations.service';
+import { TestService } from 'src/app/services/test.service';
 import * as XLSX from 'xlsx'
 @Component({
   selector: 'app-attendance',
@@ -7,6 +9,9 @@ import * as XLSX from 'xlsx'
 })
 export class AttendanceComponent {
   excelData:any
+  allbatch:any
+ uploadDatas:any=[]
+  constructor(private api:StudentsoperationsService,private test:TestService){}
   uploadImage(event:any){
     let file = event.target.files[0];
     let fileReader= new FileReader();
@@ -20,4 +25,19 @@ export class AttendanceComponent {
     
     
     }
+    uploadData(){
+      this.test.addMark(this.excelData).subscribe({
+        next:(res)=>{
+         
+        }
+      })
+    }
+    ngOnInit(){
+      this.api.getAllClassDetails().subscribe({
+        next:(res)=>{
+          console.log(res)
+        }
+      })
+    }
+    
 }

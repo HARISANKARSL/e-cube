@@ -1,11 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StudentsoperationsService {
+  addDailyClassDetails(excelData: any) {
+    throw new Error('Method not implemented.');
+  }
   setValue = [];
+  updateStudentValue=new BehaviorSubject <string>("");
   req: any;
   constructor(private http: HttpClient) {}
   getAllClassDetails() {
@@ -51,5 +56,14 @@ export class StudentsoperationsService {
     return this.http.delete(
       `http://13.200.38.169:8002/register/admin/delete/class/details/?id=${data}`
     );
+  }
+  addExamResult(data:any){
+    return this.http.post<any>(`http://13.200.38.169:8002/student_exam_result/exam-result/add/?batch_year=2023&class_name=Plus One&division=A`,data)
+  }
+  setUpdatedstudentDetails(data: any) {
+    this.updateStudentValue.next(data);
+  }
+  getstudentUpdatedValue() {
+    return this.updateStudentValue.asObservable();
   }
 }

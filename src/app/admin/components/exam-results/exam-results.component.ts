@@ -1,13 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+
 import { StudentsoperationsService } from 'src/app/services/studentsoperations.service';
 import { AddexamComponent } from '../shared/addexam/addexam.component';
-import { MatPaginatorModule} from '@angular/material/paginator';
-import { MatTableModule} from '@angular/material/table';
+
 import * as XLSX from 'xlsx'
 import { TestService } from 'src/app/services/test.service';
+import { MatSort } from '@angular/material/sort';
 @Component({
   selector: 'app-exam-results',
   templateUrl: './exam-results.component.html',
@@ -23,7 +23,7 @@ allBatch:any
   displayedColumns = ['slno', 'name', 'subject', 'mark'];
   pagination:number=1;
 itemsPerPage:number=6  
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+ 
   
   ELEMENT_DATA:any;
  
@@ -59,6 +59,7 @@ itemsPerPage:number=6
       console.log(this.ELEMENT_DATA)
       
     })
+    
   }
   
  

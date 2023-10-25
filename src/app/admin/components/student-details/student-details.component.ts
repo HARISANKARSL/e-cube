@@ -46,4 +46,7 @@ if(this.dataID==item.class_name){
     }
    })
   }
+  openfun(id:any){
+console.log(id,"id")
+  }
 }

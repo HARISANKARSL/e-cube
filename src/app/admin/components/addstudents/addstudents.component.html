@@ -53,7 +53,7 @@
       
                   
           <mat-label>Choose an option</mat-label>
-          <mat-select >
+          <mat-select matNativeControl required formControlName="class_name">
             <ng-container *ngFor="let data of allClassDetails.class_details">
               <mat-option value="{{data.class_name}}">{{data.class_name}}</mat-option>
             </ng-container>

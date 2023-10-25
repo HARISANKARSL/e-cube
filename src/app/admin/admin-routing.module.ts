@@ -11,6 +11,7 @@ import { AttendanceComponent } from './components/attendance/attendance.componen
 import { ChatboxComponent } from './components/chatbox/chatbox.component';
 import { HelpCenterComponent } from './components/help-center/help-center.component';
 import { LeaderBoardComponent } from './components/leader-board/leader-board.component';
+import { ShowAttendanceComponent } from './components/show-attendance/show-attendance.component';
 
 const routes: Routes = [
  {
@@ -46,6 +47,9 @@ path:"add-attendance",component:AttendanceComponent
     path:"help-center",component:HelpCenterComponent
   },{
     path:'leader-board',component:LeaderBoardComponent
+  },
+  {
+    path:"showAttendance",component:ShowAttendanceComponent
   }
 ];
 

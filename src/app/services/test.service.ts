@@ -8,10 +8,10 @@ export class TestService {
 
   constructor(private http:HttpClient) { }
   addMark(data:any){
-    return this.http.post<any>('http://localhost:3000/posts',data)
+    return this.http.post<any>('https://attendance-cz5n.onrender.com/attendance',data)
   }
   getMark(){
-    return this.http.get<any>('http://localhost:3000/posts')
+    return this.http.get<any>('https://attendance-cz5n.onrender.com/attendance')
   }
 
 }

@@ -38,6 +38,7 @@ import { LeaderboardComponent } from './components/leaderboard/leaderboard.compo
 import { HelpCenterComponent } from './components/help-center/help-center.component';
 import { LeaderBoardComponent } from './components/leader-board/leader-board.component';
 import { DeletealertComponent } from './components/shared/deletealert/deletealert.component';
+import { ShowAttendanceComponent } from './components/show-attendance/show-attendance.component';
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -56,6 +57,7 @@ import { DeletealertComponent } from './components/shared/deletealert/deletealer
     HelpCenterComponent,
     LeaderBoardComponent,
     DeletealertComponent,
+    ShowAttendanceComponent,
 
     
   ],

@@ -43,15 +43,18 @@ addStudent(){
 
 this.api.addNewStudent(this.addStudents.value).subscribe({
   next:(res)=>{
+    console.log(this.addStudents.value)
     if(this.addStudents.valid){
       this.toast.success('Successfully created','Success')
     this.addStudents.reset()
     }
     
   },error:(err)=>{
+    console.log(err)
     this.toast.error('field cant be empty','Error')
 
   }
+
 })
 }
 }

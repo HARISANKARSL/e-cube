@@ -13,6 +13,7 @@ import * as XLSX from 'xlsx'
 export class DailyClassUpdatesComponent {
   constructor(private api:StudentsoperationsService,private http:HttpClient,private test:TestService){}
   excelData:any
+  class_details:any
   uploadImage(event:any){
 let file = event.target.files[0];
 let fileReader= new FileReader();
@@ -21,18 +22,22 @@ fileReader.onload=(e)=>{
   var workbook=XLSX.read(fileReader.result,{type:'binary'});
   var sheetName=workbook.SheetNames;
   this.excelData= XLSX.utils.sheet_to_json(workbook.Sheets[sheetName[0]])
-  
-  console.log(this.excelData)
+  const participantsArray = this.excelData.participants;
+  console.log(participantsArray)
 }
 
 }
-uploadData(){
-  this.test.addMark(this.excelData).subscribe({
+ngOnInit(){
+
+  this.api.getAllClassDetails().subscribe({
     next:(res)=>{
-      console.log(res)
-    }
+    this.class_details=res.class_details
+console.log(this.class_details)
+
+  }
   })
 }
+
 
 
 
