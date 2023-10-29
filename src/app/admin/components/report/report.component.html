@@ -1,13 +1,13 @@
 
 <div class="container d-flex align-items-center justify-content-center" >
    
-            <mat-card class="example-card  p-5"  >
-              <h4 class="text-center">Name:Hafiz</h4>
-              <h4 class="text-center">Class:+2</h4>
+            <mat-card class="example-card  p-5"  *ngFor="let item of dataArray">
+              <h4 class="text-center">Name:{{item.name}}</h4>
+              <h4 class="text-center">Class:{{item.class_name}}</h4>
               <div class="grid-item">
             
                 <div class="py-2" *ngFor="let items of allReport">
-                <img mat-card-image src="{{items.img}}" alt="" width="220px" height="150px">
+                <img mat-card-image src="{{items.img}}" alt="" width="220px" height="150px" (click)="getReports(item)" routerLink="{{items.route}}">
                 <div class="p-2">
                   <p>{{items.title}}</p>
                 </div>

@@ -12,6 +12,8 @@ import { ChatboxComponent } from './components/chatbox/chatbox.component';
 import { HelpCenterComponent } from './components/help-center/help-center.component';
 import { LeaderBoardComponent } from './components/leader-board/leader-board.component';
 import { ShowAttendanceComponent } from './components/show-attendance/show-attendance.component';
+import { ViewStudentComponent } from './components/view-student/view-student.component';
+import { VieeDailyClassDetailsComponent } from './components/viee-daily-class-details/viee-daily-class-details.component';
 
 const routes: Routes = [
  {
@@ -50,6 +52,12 @@ path:"add-attendance",component:AttendanceComponent
   },
   {
     path:"showAttendance",component:ShowAttendanceComponent
+  },
+  {
+    path:"viewStudent",component:ViewStudentComponent
+  },
+  {
+    path:"viewstudentDailyUpdates",component:VieeDailyClassDetailsComponent
   }
 ];
 

@@ -52,11 +52,26 @@ openDialog(){
     return p.id===id
    
   })
-  this.api.setUpdatedValue(current)
+  
+  this.api.updateBatch(id).subscribe((res) => {
+    console.log(res);
+    if (res) {
+      console.log(res);
+      this.openDialog();
+      let current = this.batch.find((p: any) => {
+        return p.id === id;
+      });
+      this.api.setUpdatedValue(current);
+    }
+  });
+    this.api.setUpdatedValue(current)
+ 
+
 
 }
 deleteBatch(id:number){
-  this.api.deleteEmployee(id).subscribe((res)=>{
+  
+  this.api.deleteStudent(id).subscribe((res)=>{
     console.log(res)
     this.toast.success('Batch Deleted Succesfully','Deleted')
     this.reloadpagefunc()

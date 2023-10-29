@@ -195,6 +195,7 @@
 
       "img":"./assets/images/attendance.png",
       "title":"Attendance"
+     
 
 },
 {
@@ -202,18 +203,22 @@
 
    "img":"./assets/images/marklist.png",
    "title":"Mark Lists"
+
 },
 {
 
   
    "img":"./assets/images/dailyclass.png",
-   "title":"Daily Class Details"
+   "title":"Daily Class Details",
+   "route":"/admin/viewstudentDailyUpdates"
+  
 },
 {
 
 
    "img":"./assets/images/graph.png",
    "title":"Graphs"
+  
 }
 
 ]

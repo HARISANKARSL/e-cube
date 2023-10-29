@@ -1,0 +1,26 @@
+.viewStudent{
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.viewStudent mat-card{
+  width: 100% !important;
+   
+}
+mat-nav-list{
+    width: 180px !important;
+}
+@media only screen and (max-width: 600px) {
+    .hidesm {
+      display: none !important;
+    }
+    mat-nav-list{
+        width: 60px !important;
+    }
+    mat-list-item{
+        padding: 0 !important;
+    }
+    
+  }

@@ -11,21 +11,30 @@ export class ReportComponent {
   studentvaludebyid:any
   getStudents=[]
   allReport:any =[]
+  testData:[]=[]
+  allData:any
+  dataArray:any[]=[]
+  
 constructor(private api:HomeitemsService,private service:StudentsoperationsService){}
 ngOnInit(){
-  this.service.getStudentsById().subscribe({
-    next:(res)=>{
-      console.log(res)
-console.log(res.id)
-    },error:(err)=>{
-console.log(err)
-    }
-  })
+ 
   this.api.getAllCard().subscribe((res)=>{
 this.allReport=res.report
-console.log(this.allReport)
+
   })
+  
+
+  this.allData=this.service.getUserData() 
+ this.dataArray = [this.allData];
 
 
 }
+getReports(item:any){
+
+this.service.getStudentDailyActivities(item).subscribe((res)=>{
+ console.log(res,"response")
+})
+}
+
+
 }

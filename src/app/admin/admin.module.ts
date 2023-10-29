@@ -13,7 +13,7 @@ import { StudentDetailsComponent } from './components/student-details/student-de
 import {MatTableModule} from '@angular/material/table';
 import { ReportComponent } from './components/report/report.component';
 import { MatPaginatorModule} from '@angular/material/paginator';
-
+import {PlatformModule} from '@angular/cdk/platform';
 import {MatInputModule} from '@angular/material/input';
 
 import {MatButtonModule} from '@angular/material/button';
@@ -39,6 +39,8 @@ import { HelpCenterComponent } from './components/help-center/help-center.compon
 import { LeaderBoardComponent } from './components/leader-board/leader-board.component';
 import { DeletealertComponent } from './components/shared/deletealert/deletealert.component';
 import { ShowAttendanceComponent } from './components/show-attendance/show-attendance.component';
+import { ViewStudentComponent } from './components/view-student/view-student.component';
+import { VieeDailyClassDetailsComponent } from './components/viee-daily-class-details/viee-daily-class-details.component';
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -58,6 +60,9 @@ import { ShowAttendanceComponent } from './components/show-attendance/show-atten
     LeaderBoardComponent,
     DeletealertComponent,
     ShowAttendanceComponent,
+    ViewStudentComponent,
+    VieeDailyClassDetailsComponent,
+    
 
     
   ],
@@ -80,7 +85,8 @@ import { ShowAttendanceComponent } from './components/show-attendance/show-atten
    MatSidenavModule,
    MatListModule,
    MatDatepickerModule,
-   MatNativeDateModule
+   MatNativeDateModule,
+   PlatformModule
   ]
 })
 export class AdminModule { }

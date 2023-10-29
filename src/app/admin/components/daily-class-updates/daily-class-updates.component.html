@@ -20,7 +20,7 @@
                             <mat-label>Choose an option</mat-label>
                             <mat-select >
 
-                              <mat-option value="{{data.class_nam}}" *ngFor="let data of class_details">
+                              <mat-option value="{{data.class_name}}" *ngFor="let data of class_details" (click)="getval(data)">
                                 {{data.class_name}}
                             </mat-option>
                             
@@ -39,7 +39,7 @@
                             <div>
                                
                             </div>
-                            <input type="file" (change)="uploadImage($event)">
+                            <input type="file" (change)="onFileSelected($event)">
                         </div>
                        </div>
                      
@@ -52,7 +52,7 @@
                
                 <div>
                     <div class="text-center">
-                        <button mat-raised-button color="warn" class="p-4"  >Upload</button>
+                        <button mat-raised-button color="warn" class="p-4"  (click)="uploadData()">Upload</button>
                        </div>
                 </div>
             </div>
