@@ -6,6 +6,7 @@ import { BehaviorSubject, Observable, map } from 'rxjs';
   providedIn: 'root',
 })
 export class StudentsoperationsService {
+  Data_data=new BehaviorSubject <any>([]);
   addDailyClassDetails(excelData: any) {
     throw new Error('Method not implemented.');
   }
@@ -13,7 +14,8 @@ export class StudentsoperationsService {
   updateStudentValue=new BehaviorSubject <string>("");
   req: any;
   formData:any
-  setindividualdata:any[]=[]
+  setindividualdata:any[]=[];
+  id:any;
   constructor(private http: HttpClient) {}
 
 // get all students
@@ -92,10 +94,20 @@ getAllStudents() {
    }
 
    getStudentActivities(data:any){
-    console.log(data,"id")
-    return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/admin/get/dates/daily-activities/?user_id=${data.id}`).pipe(map((res:any)=>{return res}));
 
+    this.id =data;
+     
+    return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/admin/get/dates/daily-activities/?user_id=${data}`).
+    pipe(map((res:any)=>{  this.Data_data.next(res) ; }));
    }
+
+
+
+
+   getStudentActivities_getdate(){
+     return this.Data_data.asObservable();
+   }
+   
    setuserdata(data: any) {
     this.setindividualdata=(data);
    
@@ -108,8 +120,9 @@ getAllStudents() {
   }
 
 getStudentDailyActivities(data:any){
-  console.log(data)
-return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/admin/get/daily-activities/?user_id=${data.id}&date=${data.date}`)
+return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/admin/get/daily-activities/?user_id=${this.id}&date=${data}`).pipe(map((res)=>{
+  return res;
+}))
   }
 
 

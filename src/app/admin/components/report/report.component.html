@@ -7,7 +7,8 @@
               <div class="grid-item">
             
                 <div class="py-2" *ngFor="let items of allReport">
-                <img mat-card-image src="{{items.img}}" alt="" width="220px" height="150px" (click)="getReports(item)" routerLink="{{items.route}}">
+                <img mat-card-image src="{{items.img}}" alt="" width="220px" height="150px" (click)="getReports(item,items)" routerLink="{{items.route}}">
+
                 <div class="p-2">
                   <p>{{items.title}}</p>
                 </div>

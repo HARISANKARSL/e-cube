@@ -29,11 +29,14 @@ this.allReport=res.report
 
 
 }
-getReports(item:any){
+getReports(item:any,items:any){
+  
+  if(items.title ==="Daily Class Details"){
+      this.service.getStudentActivities(item.id).subscribe((res)=>{
 
-this.service.getStudentDailyActivities(item).subscribe((res)=>{
- console.log(res,"response")
 })
+  }
+
 }
 
 
