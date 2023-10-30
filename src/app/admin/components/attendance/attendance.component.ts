@@ -13,23 +13,17 @@ export class AttendanceComponent {
  uploadDatas:any=[]
  file:any
  class_details:any
+ data:[]=[]
   constructor(private api:StudentsoperationsService){}
+ 
   onFileSelected(event: any) {
     this.file = event.target.files[0];
-    
-   this.api.addBulkAtendance(this.file,this.class_details).subscribe({
-    next:(res)=>{
-      console.log(res)
-    },error:(err)=>{
-      console.log(err)
-    }
-   })
    
+  
  }
     
     
  ngOnInit(){
-
   this.api.getAllClassDetails().subscribe({
     next:(res)=>{
     this.class_details=res.class_details
@@ -37,6 +31,16 @@ export class AttendanceComponent {
 
   }
   })
+}
+uploadAttendnace(){
+  this.api.addBulkAtendance(this.file,this.data).subscribe({
+    next:(res)=>{
+      console.log(res)
+    },error:(err)=>{
+      console.log(err)
+    }
+  })
+
 }
     
 }

@@ -87,9 +87,9 @@ getAllStudents() {
    addBulkAtendance(data:File,item:any){
  
     this.formData = new FormData();
-  this.formData.append("media_file", data);
-
-  return this.http.post<any>(`http://13.200.38.169:8002/student_attendance/attendance/add/bulk/?batch_year=2024&class_name=PLUS ONE&division=A&date=09/10/2024`,this.formData)
+  this.formData.append("exam_results_file", data);
+console.log(item)
+  return this.http.post<any>(`http://13.200.38.169:8002/student_attendance/attendance/add/bulk/?batch_year=${item.batch_year}&class_name=${item.class_name}&division=${item.division}&date=${item.date}`,this.formData)
 
    }
 
@@ -124,7 +124,12 @@ return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/ad
   return res;
 }))
   }
-
+  getLeaderBoard(data:any){
+    console.log(data)
+    return this.http.get<any>(`http://13.200.38.169:8002/student_leaderboard/admin/get_leaderboard/?batch_year=2024&class_name=PLUS ONE&division=A&subject=MATHS`).pipe(map((res)=>{
+      return res;
+    }))
+      }
 
    
 }

@@ -34,13 +34,15 @@ import { AddexamComponent } from './components/shared/addexam/addexam.component'
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { ChatboxComponent } from './components/chatbox/chatbox.component';
-import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+
 import { HelpCenterComponent } from './components/help-center/help-center.component';
 import { LeaderBoardComponent } from './components/leader-board/leader-board.component';
 import { DeletealertComponent } from './components/shared/deletealert/deletealert.component';
 import { ShowAttendanceComponent } from './components/show-attendance/show-attendance.component';
 import { ViewStudentComponent } from './components/view-student/view-student.component';
 import { VieeDailyClassDetailsComponent } from './components/viee-daily-class-details/viee-daily-class-details.component';
+import { ViewAttendanceComponent } from './components/view-attendance/view-attendance.component';
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -55,13 +57,14 @@ import { VieeDailyClassDetailsComponent } from './components/viee-daily-class-de
     PopupComponent,
     AddexamComponent,
     ChatboxComponent,
-    LeaderboardComponent,
+ 
     HelpCenterComponent,
     LeaderBoardComponent,
     DeletealertComponent,
     ShowAttendanceComponent,
     ViewStudentComponent,
     VieeDailyClassDetailsComponent,
+    ViewAttendanceComponent,
     
 
     
@@ -86,7 +89,8 @@ import { VieeDailyClassDetailsComponent } from './components/viee-daily-class-de
    MatListModule,
    MatDatepickerModule,
    MatNativeDateModule,
-   PlatformModule
+   PlatformModule,
+   MatTabsModule
   ]
 })
 export class AdminModule { }

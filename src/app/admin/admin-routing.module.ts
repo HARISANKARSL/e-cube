@@ -14,6 +14,7 @@ import { LeaderBoardComponent } from './components/leader-board/leader-board.com
 import { ShowAttendanceComponent } from './components/show-attendance/show-attendance.component';
 import { ViewStudentComponent } from './components/view-student/view-student.component';
 import { VieeDailyClassDetailsComponent } from './components/viee-daily-class-details/viee-daily-class-details.component';
+import { ViewAttendanceComponent } from './components/view-attendance/view-attendance.component';
 
 const routes: Routes = [
  {
@@ -58,6 +59,11 @@ path:"add-attendance",component:AttendanceComponent
   },
   {
     path:"viewstudentDailyUpdates",component:VieeDailyClassDetailsComponent
+  },
+  {
+    path:"viewAttendnace",component:ViewAttendanceComponent
+  },{
+    path:"leaderboard",component:LeaderBoardComponent
   }
 ];
 

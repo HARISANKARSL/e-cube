@@ -9,7 +9,7 @@ import { StudentsoperationsService } from 'src/app/services/studentsoperations.s
 export class VieeDailyClassDetailsComponent {
   Date_date:any;
   datas:any
-  studentsActivities:any
+  studentsActivities:any[]=[]
 constructor(private api:StudentsoperationsService){}
    
    ngOnInit(){
@@ -24,16 +24,13 @@ constructor(private api:StudentsoperationsService){}
     console.log(this.Date_date )
    }
 
-  //  date_date(item:any){
-  //   this.datas=this.api.getStudentDailyActivities(item).subscribe((res)=>{
-  //     this.studentsActivities=res
+   date_date(item:any){
+    this.datas=this.api.getStudentDailyActivities(item).subscribe((res)=>{
+      this.studentsActivities=[res.daily_updates[0]]
 
-  //     console.log(this.studentsActivities);
-  //   })
-  //  }
-  date_date(item: any) {
-    this.studentsActivities = this.api.getStudentDailyActivities(item).subscribe((res)=>{
-      console.log(res)
-    });
-  }
+      console.log(this.studentsActivities);
+    })
+   }
+
+  
 }

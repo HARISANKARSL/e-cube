@@ -35,7 +35,7 @@
  
         "img":"./assets/images/leadrboard.png",
         "title":"Leader Board",
-        "route":"/admin/leader-board"
+        "route":"/admin/leaderboard"
      },
      {
        
@@ -95,98 +95,7 @@
 
     "title":"+2-C"
  }
-],
-"table":[
-   {
 
-   
- "id":"1",
- "name":"Hafiz",
- "phoneNumber":"12451424142",
- "emailId":"test@gmail.com",
- "subject":"Physics,Mats",
- "route":"/admin/report"
-
-},
-{
-
-
-   "id":"2",
- "name":"Justin",
- "phoneNumber":"12451424142",
- "emailId":"test@gmail.com",
- "subject":"English,Chemistry,Mats"
-},
-{
-
-   "id":"3",
-   "name":"Liya",
-   "phoneNumber":"12451424142",
-   "emailId":"test@gmail.com",
-   "subject":"English,Chemistry"
-},
-{
-
-
-   "id":"4",
-   "name":"Sujesh",
-   "phoneNumber":"12451424142",
-   "emailId":"test@gmail.com",
-   "subject":"English,Chemistry"
-},
-{
-
-   "id":"5",
-   "name":"Rahul",
-   "phoneNumber":"12451424142",
-   "emailId":"test@gmail.com",
-   "subject":"English,Chemistry"
-},
-{
-
-
-   "id":"6",
-   "name":"Gokul",
-   "phoneNumber":"12451424142",
-   "emailId":"test@gmail.com",
-   "subject":"English,Chemistry"
-},
-{
-
-
-   "id":"7",
-   "name":"Vishnu",
-   "phoneNumber":"12451424142",
-   "emailId":"test@gmail.com",
-   "subject":"English,Chemistry"
-},
-{
-
-
-   "id":"8",
-   "name":"Abhi",
-   "phoneNumber":"12451424142",
-   "emailId":"test@gmail.com",
-   "subject":"English,Chemistry"
-},
-{
-
-
-   "id":"9",
-   "name":"Sachin",
-   "phoneNumber":"12451424142",
-   "emailId":"test@gmail.com",
-   "subject":"English,Chemistry"
-},
-{
-
-
-   "id":"10",
-   "name":"Manu",
-   "phoneNumber":"12451424142",
-   "emailId":"test@gmail.com",
-   "subject":"English,Chemistry"
-}
 ],
 "report":[
    {
@@ -194,8 +103,8 @@
    
 
       "img":"./assets/images/attendance.png",
-      "title":"Attendance"
-     
+      "title":"Attendance",
+     "route":"/admin/viewAttendnace"
 
 },
 {
