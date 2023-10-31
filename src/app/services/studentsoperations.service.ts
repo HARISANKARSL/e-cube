@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 
@@ -101,6 +101,24 @@ console.log(item)
   return this.http.post<any>(`http://13.200.38.169:8002/student_exam_result/exam-result/add/bulk/?batch_year=${item.batch_year}&class_name=${item.class_name}&division=${item.division}`,this.addBulkMark)
 }
 
+// addBulkMarks(data: File, item: any) {
+//   console.log(item.id, "item of datasfgasjasidj");
+//   const addBulkMark = new FormData();
+//   addBulkMark.append("exam_results_file", data);
+
+//   // Construct query parameters
+//   let params = new HttpParams()
+//     .set('batch_year', item.batch_year)
+//     .set('class_name', item.class_name)
+//     .set('division', item.division);
+
+//   return this.http.post<any>(
+//     'http://13.200.38.169:8002/student_exam_result/exam-result/add/bulk/',
+//     addBulkMark,
+//     { params }
+//   );
+// }
+
   //  get student activity
 
    getStudentActivities(data:any){
@@ -158,6 +176,10 @@ getStudentAttendance(){
 
 getAttendnace(data:any){
   return this.http.get<any>(`http://13.200.38.169:8002/student_attendance/admin/attendance/get/?user_id=${this.id.id}&month_year_number=${data}`)
+}
+
+getMarks(){
+  return this.http.get<any>(`http://13.200.38.169:8002/student_exam_result/get/admin/exam-result/?user_id=${this.id.id}`)
 }
 
 

@@ -8,6 +8,7 @@ import { AddexamComponent } from '../shared/addexam/addexam.component';
 import * as XLSX from 'xlsx'
 import { TestService } from 'src/app/services/test.service';
 import { MatSort } from '@angular/material/sort';
+import { Toast, ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-exam-results',
   templateUrl: './exam-results.component.html',
@@ -19,13 +20,11 @@ allBatch:any
   excelData:any
 
 
-  constructor(private api:StudentsoperationsService,private dialog:MatDialog,private test:TestService){}
-  displayedColumns = ['slno', 'name', 'subject', 'mark'];
-  pagination:number=1;
-itemsPerPage:number=6  
+  constructor(private api:StudentsoperationsService,private dialog:MatDialog,private toast:ToastrService){}
+
 file:any
 data:[]=[]
-  ELEMENT_DATA:any;
+
  
   openDialog(){
     this.dialog.open(AddexamComponent, {
@@ -39,6 +38,7 @@ data:[]=[]
    
     onFileSelected(event: any) {
       this.file = event.target.files[0];
+      console.log(this.file)
      
     
    }
@@ -53,9 +53,11 @@ data:[]=[]
   uploadMarks(){
     this.api.addBulkMarks(this.file,this.data).subscribe({
       next:(res)=>{
-        console.log(res,"data")
+       this.toast.success('Mark Added Succesfully','Success')
+      
+
       },error:(err)=>{
-        console.log(err)
+        this.toast.error('Failed')
       }
     })
     
@@ -63,7 +65,7 @@ data:[]=[]
   }
   getval(data:any){
     this.data=data
-    
+    console.log(data)
     }
  
 }

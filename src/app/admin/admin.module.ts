@@ -43,6 +43,7 @@ import { ViewStudentComponent } from './components/view-student/view-student.com
 import { VieeDailyClassDetailsComponent } from './components/viee-daily-class-details/viee-daily-class-details.component';
 import { ViewAttendanceComponent } from './components/view-attendance/view-attendance.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ViewMarksComponent } from './components/view-marks/view-marks.component';
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -65,6 +66,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     ViewStudentComponent,
     VieeDailyClassDetailsComponent,
     ViewAttendanceComponent,
+    ViewMarksComponent,
     
 
     
