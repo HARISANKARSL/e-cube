@@ -40,7 +40,13 @@ uploadAttendnace(){
       console.log(err)
     }
   })
+  
 
 }
+getval(data:any){
+  this.data=data
+  
+  }
+
     
 }

@@ -13,7 +13,7 @@
                   
                       <mat-label>Choose an option</mat-label>
                       <mat-select >
-                        <mat-option value="batch.class_name + batch.division" *ngFor="let batch of allBatch" >
+                        <mat-option (click)="getval(data)" value="batch.class_name + batch.division" *ngFor="let batch of allBatch" >
                           {{batch.class_name}} {{batch.division}}
                         </mat-option>
                      
@@ -33,9 +33,23 @@
                         </mat-select>
                       </mat-form-field>
                  </div>
+                 <mat-card  class="  d-flex align-items-center justify-content-center" >
+                     <mat-card-content>
+                     
+                           <div class="">
+                            <h2>Enter Sheet</h2>
+                               <div>
+                               
+                                <input type="file" name="exam_results_file" (change)="onFileSelected($event)">
+                            </div>
+                           </div>
+                         
+                   
+                     </mat-card-content>
+                   </mat-card>
              </div>
              
-             <div>
+             <div class="py-3">
                <div>
                 <button mat-raised-button color="warn" class="p-4" (click)=" openDialog()">Create Exam<mat-icon>add</mat-icon></button>
                </div>
@@ -80,7 +94,7 @@
                     </div>
                   <div>
                     <div class="text-end m-2">
-                        <button mat-raised-button color="warn" class="">Upload</button>
+                        <button mat-raised-button color="warn" class="" (click)="uploadMarks()">Upload</button>
                        </div>
                   </div>
 

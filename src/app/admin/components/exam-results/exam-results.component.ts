@@ -23,8 +23,8 @@ allBatch:any
   displayedColumns = ['slno', 'name', 'subject', 'mark'];
   pagination:number=1;
 itemsPerPage:number=6  
- 
-  
+file:any
+data:[]=[]
   ELEMENT_DATA:any;
  
   openDialog(){
@@ -37,30 +37,33 @@ itemsPerPage:number=6
     
 
    
-    uploadImage(event:any){
-  let file = event.target.files[0];
-  let fileReader= new FileReader();
-  fileReader.readAsBinaryString(file)
-  fileReader.onload=(e)=>{
-    var workbook=XLSX.read(fileReader.result,{type:'binary'});
-    var sheetName=workbook.SheetNames;
-    this.excelData= XLSX.utils.sheet_to_json(workbook.Sheets[sheetName[0]])
-  }
-  }
+    onFileSelected(event: any) {
+      this.file = event.target.files[0];
+     
+    
+   }
   ngOnInit(){
     this.api.getAllClassDetails().subscribe((res)=>{
       this.allBatch=res.class_details
       console.log(this.allBatch)
       
     })
-    this.test.getMark().subscribe((res:any)=>{
-    const convert=res.flat()
-      this.ELEMENT_DATA=convert
-      console.log(this.ELEMENT_DATA)
-      
+   
+  }
+  uploadMarks(){
+    this.api.addBulkAtendance(this.file,this.data).subscribe({
+      next:(res)=>{
+        console.log(res)
+      },error:(err)=>{
+        console.log(err)
+      }
     })
     
-  }
   
+  }
+  getval(data:any){
+    this.data=data
+    
+    }
  
 }

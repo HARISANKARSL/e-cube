@@ -7,13 +7,13 @@ import { BehaviorSubject, Observable, map } from 'rxjs';
 })
 export class StudentsoperationsService {
   Data_data=new BehaviorSubject <any>([]);
-  addDailyClassDetails(excelData: any) {
-    throw new Error('Method not implemented.');
-  }
+attendanceDate:any
+addBulkMark:any
   setValue = [];
   updateStudentValue=new BehaviorSubject <string>("");
   req: any;
   formData:any
+  formDatas:any
   setindividualdata:any[]=[];
   id:any;
   constructor(private http: HttpClient) {}
@@ -86,15 +86,24 @@ getAllStudents() {
   // attendance bulk
    addBulkAtendance(data:File,item:any){
  
-    this.formData = new FormData();
-  this.formData.append("exam_results_file", data);
+    this.formDatas = new FormData();
+  this.formDatas.append("attendance_file", data);
 console.log(item)
-  return this.http.post<any>(`http://13.200.38.169:8002/student_attendance/attendance/add/bulk/?batch_year=${item.batch_year}&class_name=${item.class_name}&division=${item.division}&date=${item.date}`,this.formData)
+  return this.http.post<any>(`http://13.200.38.169:8002/student_attendance/attendance/add/bulk/?batch_year=${item.batch_year}&class_name=${item.class_name}&division=${item.division}&date=${item.date}`,this.formDatas)
 
    }
+// add students marks bulk
+addBulkMarks(data:File,item:any){
+  this.addBulkMark=new FormData()
+  this.addBulkMark.append("exam_results_file", data);
+console.log(item)
+  return this.http.post<any>(`http://13.200.38.169:8002/student_exam_result/exam-result/add/bulk/?batch_year=${item.batch_year}&class_name=${item.class_name}&division=${item.division}`,this.addBulkMark)
+}
+
+  //  get student activity
 
    getStudentActivities(data:any){
-
+console.log(data,"sdsdsdsdsddsdsd")
     this.id =data;
      
     return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/admin/get/dates/daily-activities/?user_id=${data}`).
@@ -102,7 +111,7 @@ console.log(item)
    }
 
 
-
+// get stutednt activites date
 
    getStudentActivities_getdate(){
      return this.Data_data.asObservable();
@@ -118,12 +127,14 @@ console.log(item)
     return this.setindividualdata
     
   }
-
+// get student daily activities
 getStudentDailyActivities(data:any){
 return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/admin/get/daily-activities/?user_id=${this.id}&date=${data}`).pipe(map((res)=>{
   return res;
 }))
   }
+
+  // leader board
   getLeaderBoard(data:any){
     console.log(data)
     return this.http.get<any>(`http://13.200.38.169:8002/student_leaderboard/admin/get_leaderboard/?batch_year=2024&class_name=PLUS ONE&division=A&subject=MATHS`).pipe(map((res)=>{
@@ -131,5 +142,21 @@ return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/ad
     }))
       }
 
-   
+
+
+
+      
+getStudentAttendance(){
+
+  return this.http.get<any>(`http://13.200.38.169:8002/student_attendance/admin/attendance/get/status/?user_id=${this.id.id}`)
+
+
+ 
+}
+//    getStudentAttendance_date(){
+// console.log(this.attendanceDate,"tdnce data")
+//     return this.attendanceDate;
+//    }
+
+
 }
