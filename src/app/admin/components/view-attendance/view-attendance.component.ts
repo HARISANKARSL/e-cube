@@ -12,17 +12,19 @@ export class ViewAttendanceComponent {
   Date_date:any;
   datas:any[]=[]
   studentsActivities:any[]=[]
+  presentDays:any
+  absentDays:any
   ngOnInit(){
    
 
   
-try {
+
   this.api.getStudentAttendance().subscribe({
     next:(res)=>{
-      console.log(res,"attendance")
-      this.Date_date=res.ddistinct_dates
+    
+      this.Date_date=res.distinct_dates
+      console.log(this.Date_date,"attendance")
   
-  console.log(this.Date_date,"datae wuhdwsdijwdpowdpmkwd")
     },error:(err)=>{
     console.log(err)
     }
@@ -30,28 +32,24 @@ try {
     
   })
   
-} catch (error) {
-  console.log(error)
-} finally{
-  if(this.Date_date.status=='success'){
-this.datas=this.Date_date.distinct_dates
-console.log(this.datas,"array data")
-  }
-}
+
 
 
   }
+  date_date(item:any){
+    this.api.getAttendnace(item).subscribe({
+      next:(res)=>{
+      
+      this.presentDays=res.attendance_result.present_days
+      this.absentDays=res.attendance_result.absent_days
+      console.log(this.presentDays)
+      }
+    })
+  console.log(item,"s8dhwsdhwdw item")
+   }
+   
 
-  // fun(){
-  //  console.log(this.Date_date )
-  // }
 
-  // date_date(item:any){
-  //  this.datas=this.api.getStudentDailyActivities(item).subscribe((res)=>{
-  //    this.studentsActivities=[res.daily_updates[0]]
-
-  //    console.log(this.studentsActivities);
-  //  })
   }
 
  

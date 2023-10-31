@@ -45,15 +45,15 @@ data:[]=[]
   ngOnInit(){
     this.api.getAllClassDetails().subscribe((res)=>{
       this.allBatch=res.class_details
-      console.log(this.allBatch)
+      
       
     })
    
   }
   uploadMarks(){
-    this.api.addBulkAtendance(this.file,this.data).subscribe({
+    this.api.addBulkMarks(this.file,this.data).subscribe({
       next:(res)=>{
-        console.log(res)
+        console.log(res,"data")
       },error:(err)=>{
         console.log(err)
       }

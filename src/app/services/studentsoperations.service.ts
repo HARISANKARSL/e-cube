@@ -94,6 +94,7 @@ console.log(item)
    }
 // add students marks bulk
 addBulkMarks(data:File,item:any){
+  console.log(item.id,"item of datasfgasjasidj")
   this.addBulkMark=new FormData()
   this.addBulkMark.append("exam_results_file", data);
 console.log(item)
@@ -153,10 +154,11 @@ getStudentAttendance(){
 
  
 }
-//    getStudentAttendance_date(){
-// console.log(this.attendanceDate,"tdnce data")
-//     return this.attendanceDate;
-//    }
+
+
+getAttendnace(data:any){
+  return this.http.get<any>(`http://13.200.38.169:8002/student_attendance/admin/attendance/get/?user_id=${this.id.id}&month_year_number=${data}`)
+}
 
 
 }

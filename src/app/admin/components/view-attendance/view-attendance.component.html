@@ -4,43 +4,77 @@
             <h2>Select Batch</h2>
             <mat-form-field>
           
-                <mat-label>Choose an option</mat-label>
-                <mat-select  >
+              <mat-label>Select Batch</mat-label>
+              <mat-select  >
 
-                    
-                  <mat-option   >
-                   sdsd
-                </mat-option >
-              
-                </mat-select>
-              </mat-form-field>
+                  
+                <mat-option *ngFor="let date of Date_date" value="{{date}}" (click)="date_date(date)"  >
+                   {{date}}
+              </mat-option >
+            
+              </mat-select>
+            </mat-form-field>
          </div>
-         <table class="table">
-            <thead>
-              <tr>
-               
-                <th scope="col">Present Date</th>
-                <th scope="col">Absent Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+         <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <table class="table">
+              <thead>
+                <tr>
+                 
+                  <th scope="col">Present Date</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let presentData of presentDays" >
+                  
+                  <td>
+    <p>
+      {{presentData.year}}  {{presentData.month}} {{presentData.day}} 
+    </p>
+  
+  
+                  </td>
+                  
+                </tr>
                 
-                <td>
-  <p>present</p>
-  <p>present</p>
-  <p>present</p>
-
-                </td>
-                <td>
-                    <p>absent</p>
-                    <p>absent</p>
-                    <p>absent</p>
-                </td>
-              </tr>
-             
-            </tbody>
-          </table>
+                  
+               
+               
+              </tbody>
+            </table>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <table class="table">
+              <thead>
+                <tr>
+                 
+                  <th scope="col">Absent Date</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let absentData of absentDays" >
+                  
+                  <td>
+    <p>
+      {{absentData.year}}  {{absentData.month}} {{absentData.day}} 
+    </p>
+  
+  
+                  </td>
+                 
+                </tr>
+                
+                  
+               
+               
+              </tbody>
+            </table>
+          </div>
+         </div>
+        
+       
       </mat-card>
 
 

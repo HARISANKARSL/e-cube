@@ -13,8 +13,8 @@
                   
                       <mat-label>Choose an option</mat-label>
                       <mat-select >
-                        <mat-option (click)="getval(data)" value="batch.class_name + batch.division" *ngFor="let batch of allBatch" >
-                          {{batch.class_name}} {{batch.division}}
+                        <mat-option (click)="getval(data)" value="batch.class_name " *ngFor="let batch of allBatch" >
+                          {{batch.class_name}}
                         </mat-option>
                      
                       </mat-select>
