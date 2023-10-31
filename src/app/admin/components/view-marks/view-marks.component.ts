@@ -10,7 +10,8 @@ import { StudentsoperationsService } from 'src/app/services/studentsoperations.s
 export class ViewMarksComponent {
 constructor(private api:StudentsoperationsService){}
 subjects: string[] = [];
-data:any[]=[]
+data:any[]=[];
+get_data:any[]=[];
 allData:any
 ngOnInit() {
 
@@ -30,16 +31,10 @@ ngOnInit() {
   });
 }
 getMarks(subject:any){
-this.data=this.allData.filter((res:any)=>{
-  this.allData.forEach((res:any)=>{
-    const subjects = res.subject;
-    if(subject==res.subject){
-      return res
-     }
-  })
 
-})
-console.log()
+
+this.data=this.allData.filter((res:any,index:any)=>{ if(res.subject === subject ){ return res }  })
+   this.get_data = this.data[0].data
 }
 }
 
