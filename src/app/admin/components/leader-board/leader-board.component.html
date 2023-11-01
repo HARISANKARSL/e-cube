@@ -12,8 +12,8 @@
                     <mat-form-field>
                         <mat-label>Select Btach</mat-label>
                         <mat-select >
-                          <mat-option *ngFor="let batch of allBatch" value="{{batch.class_name}}+ {{batch.division}}" (click)="getval(batch.class_name,batch.division)" >
-                            {{batch.class_name}} {{batch.division}}
+                          <mat-option *ngFor="let batch of allBatch" value="{{batch.class_name}}" (click)="getval(batch.class_name)" >
+                            {{batch.class_name}} 
                         </mat-option >
                         </mat-select>
                       </mat-form-field>
@@ -23,24 +23,19 @@
                     <mat-form-field>
                         <mat-label>Choose an option</mat-label>
                         <mat-select >
-                          <mat-option value="option1" *ngFor="let batch of allBatch" value="{{batch.batch_year}}">{{batch.batch_year}}</mat-option>
+                          <mat-option value="option1" *ngFor="let batch of data" value="{{batch.batch_year}}">{{batch.batch_year}}</mat-option>
 
                         </mat-select>
                       </mat-form-field>
                 </div>
               
             </div>
-           <div class="d-flex align-items-center justify-content-center gap-5 " >
+           <div class="d-flex align-items-center justify-content-center gap-5 " *ngFor="let batch of subjects_arry" >
             <div>
-                <button type="button " (click)="issubject=true"   class="btn  "  [ngClass]="issubject?'subjects ':'subject'">Physics</button>
-
+                <!-- <button type="button " (click)="issubject=true"   class="btn  "  [ngClass]="issubject?'subjects ':'subject'">{{batch}}</button> -->
+               <button (click)="subjects(batch)">{{batch}}</button>
             </div>
-            <div>
-                <button type="button " (click)="issubject=false"  class="btn  " [ngClass]="!issubject?'subjects':'subject'">Chemistry</button>
-            </div>
-            <div>
-                <button type="button "  class="btn  " [ngClass]="issubject?'subjects':'subject'">Maths</button>
-            </div>
+          
            </div>
          </div>
          <div class="leader-board pt-5 mt-5 mb-2 pb-4">

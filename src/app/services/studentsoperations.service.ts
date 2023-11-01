@@ -158,9 +158,13 @@ return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/ad
   }
 
   // leader board
-  getLeaderBoard(){
+  getLeaderBoard(alldata:any,sub:any){
 
-    return this.http.get<any>(`http://13.200.38.169:8002/student_leaderboard/admin/get_leaderboard/?batch_year=2024&class_name=PLUS ONE&division=A&subject=MATHS`)
+    console.log(alldata[0].batch_year);
+    console.log(sub);
+
+
+    return this.http.get<any>(`http://13.200.38.169:8002/student_leaderboard/admin/get_leaderboard/?batch_year=${alldata[0].batch_year}&class_name=${alldata[0].class_name}&division=${alldata[0].division}&subject=${sub}`)
      
       }
 

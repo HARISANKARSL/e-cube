@@ -12,16 +12,17 @@ export class LeaderBoardComponent {
   allData:any[]=[]
   data:any[]=[]
   lederboardData:any
-  subject:any
+  subject:any;
+  subjects_arry:any[]=[]
 constructor(private api:StudentsoperationsService){}
 ngOnInit(){
 
   this.api.getAllClassDetails().subscribe((res)=>{
     this.allBatch=res.class_details
-    
+    console.log(this.allBatch)
    this.allBatch.map((item:any,index:any)=>{
     this.subject=item.subjects.split(',')
-    console.log(this.subject,"sdsdd")
+    
     
    })
    
@@ -31,21 +32,31 @@ ngOnInit(){
  
 
 
-  this.api.getLeaderBoard().subscribe({
-    next:(res)=>{
-      this.allData=res.leaderboard
-      console.log(this.allData,"leader")
-    }
-  })
-}
-getval(classlist:any,division:any){
- 
-this.lederboardData={
-  "divsion":division,
-"classs_name":classlist
-}
-console.log(this.lederboardData,"ldr")
 
+}
+getval(item:any){
+ 
+  this.data =this.allBatch.filter((res:any)=>{ 
+    if(res.class_name == item ){
+      return res;
+    }
+  });
+
+  this.data.forEach((res)=>{
+    this.subjects_arry =res.subjects.split(',')
+  })
+
+
+
+  }
+
+  subjects(batch:any){
+    this.api.getLeaderBoard(this.data,batch).subscribe({
+      next:(res)=>{
+        this.allData=res.leaderboard
+       
+      }
+    })
   }
 
 }
