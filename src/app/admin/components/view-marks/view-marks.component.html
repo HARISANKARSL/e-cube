@@ -2,11 +2,11 @@
     <mat-card>
         <mat-card-content>
    <div>
-    <h2>Show Marks</h2>
+    <h2>Exam Result</h2>
    </div>
    <mat-form-field>
           
-    <mat-label>Select Batch</mat-label>
+    <mat-label>Select Subject</mat-label>
     <mat-select  >
 
         
@@ -20,15 +20,15 @@
                    
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                 
+                    <th scope="col">Exam name</th>
+                    <th scope="col">Marks</th>
+                 
                   </tr>
                 </thead>
                 <tbody *ngFor="let item of get_data">
                   <tr>
-                    <th scope="row">1</th>
+                   
                     <td>{{item.exam_name}}</td>
                     <td>{{item.marks}}</td>
                     

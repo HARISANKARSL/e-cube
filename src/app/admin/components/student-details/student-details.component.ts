@@ -26,8 +26,10 @@ export class StudentDetailsComponent {
 
     this.api.getAllStudents().subscribe({
       next: (res) => {
+        
         this.dataSource = res.all_users;
         this.studentData = this.dataSource.filter((item: any) => {
+          console.log(item,"sasasa")
           if (this.dataID == item.class_name) {
             this.students_details = this.dataID;
             return item;

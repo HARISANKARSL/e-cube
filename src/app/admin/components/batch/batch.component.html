@@ -28,7 +28,7 @@
                        
                         <mat-card >
                             <mat-card-content class="text-center " (click)="getById(items.class_name)">
-                             <h2 class="text-white">{{items.class_name}}</h2>
+                             <h2 class="text-white">{{items.class_name}} {{items.division}}</h2>
                             </mat-card-content>
                          <div class="d-flex gap-3 my-3">
                             <div>
@@ -52,7 +52,7 @@
             <mat-icon data-bs-dismiss="modal">clear</mat-icon>
         </div>
         <div class="modal-body text-center">
-         <h3>  Are you sure you want to delete the bathc <b >{{items.class_name}} {{items.division}} </b>?</h3>
+         <h3>  Are you sure you want to delete the bathch <b >{{items.class_name}} {{items.division}} </b>?</h3>
           </div>
         
         <div class="text-end p-3">

@@ -53,11 +53,11 @@ data:[]=[]
   uploadMarks(){
     this.api.addBulkMarks(this.file,this.data).subscribe({
       next:(res)=>{
-       this.toast.success('Mark Added Succesfully','Success')
+       this.toast.success(res.message,'Success')
       
 
       },error:(err)=>{
-        this.toast.error('Failed')
+        this.toast.error(err.message,'Failed')
       }
     })
     

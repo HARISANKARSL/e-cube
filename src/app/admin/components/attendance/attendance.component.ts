@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { StudentsoperationsService } from 'src/app/services/studentsoperations.service';
 import { TestService } from 'src/app/services/test.service';
 import * as XLSX from 'xlsx'
@@ -14,7 +15,7 @@ export class AttendanceComponent {
  file:any
  class_details:any
  data:[]=[]
-  constructor(private api:StudentsoperationsService){}
+  constructor(private api:StudentsoperationsService,private toast:ToastrService){}
  
   onFileSelected(event: any) {
     this.file = event.target.files[0];
@@ -35,9 +36,9 @@ export class AttendanceComponent {
 uploadAttendnace(){
   this.api.addBulkAtendance(this.file,this.data).subscribe({
     next:(res)=>{
-      console.log(res)
+      this.toast.success(res.status,"success")
     },error:(err)=>{
-      console.log(err)
+    this.toast.error(err.message,"Failed")
     }
   })
   

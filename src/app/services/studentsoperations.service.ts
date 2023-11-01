@@ -16,6 +16,8 @@ addBulkMark:any
   formDatas:any
   setindividualdata:any[]=[];
   id:any;
+
+  
   constructor(private http: HttpClient) {}
 
 // get all students
@@ -47,6 +49,7 @@ getAllStudents() {
   }
   // update batch
   updateBatch(id: any) {
+    console.log(id)
     return this.http.put<any>(
       `http://13.200.38.169:8002/register/admin/update/class/details/`,id
       
@@ -54,9 +57,10 @@ getAllStudents() {
     );}
   setUpdatedValue(data: any) {
     this.setValue = data;
-    console.log(this.setValue,"set")
+  
   }
   getUpdatedValue() {
+    console.log(this.setValue,"valuesdffffd")
     return this.setValue;
   }
   // delet batch
@@ -154,11 +158,10 @@ return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/ad
   }
 
   // leader board
-  getLeaderBoard(data:any){
-    console.log(data)
-    return this.http.get<any>(`http://13.200.38.169:8002/student_leaderboard/admin/get_leaderboard/?batch_year=2024&class_name=PLUS ONE&division=A&subject=MATHS`).pipe(map((res)=>{
-      return res;
-    }))
+  getLeaderBoard(){
+
+    return this.http.get<any>(`http://13.200.38.169:8002/student_leaderboard/admin/get_leaderboard/?batch_year=2024&class_name=PLUS ONE&division=A&subject=MATHS`)
+     
       }
 
 

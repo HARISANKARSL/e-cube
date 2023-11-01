@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Binary } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { StudentsoperationsService } from 'src/app/services/studentsoperations.service';
 import { TestService } from 'src/app/services/test.service';
 import * as XLSX from 'xlsx'
@@ -12,7 +13,7 @@ import * as XLSX from 'xlsx'
 })
 export class DailyClassUpdatesComponent {
   file:any
-  constructor(private api:StudentsoperationsService,private http:HttpClient,private test:TestService){}
+  constructor(private api:StudentsoperationsService,private http:HttpClient,private test:TestService,private toast:ToastrService){}
   excelData:any
   class_details:any
   data:[]=[]
@@ -37,10 +38,10 @@ ngOnInit(){
 uploadData(){
   this.api.getBUlkdata(this.file,this.data).subscribe({
     next:(res)=>{
-    console.log(res,"success") 
-    
+   this.toast.success(res.message,"Success")
+   
     },error:(err)=>{
-      console.log(err)
+      this.toast.error(err.message,"Failed")
     }
   })
 }
