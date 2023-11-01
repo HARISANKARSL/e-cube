@@ -27,6 +27,8 @@ ngOnInit() {
     next: (filteredSubjects) => {
       this.subjects = filteredSubjects; 
       
+    },error:(err)=>{
+      console.log(err)
     }
   });
 }

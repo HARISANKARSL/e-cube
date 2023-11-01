@@ -21,14 +21,14 @@ constructor(private api:StudentsoperationsService){}
    }
 
    fun(){
-    console.log(this.Date_date )
+  
    }
 
    date_date(item:any){
     this.datas=this.api.getStudentDailyActivities(item).subscribe((res)=>{
       this.studentsActivities=[res.daily_updates[0]]
 
-      console.log(this.studentsActivities);
+
     })
    }
 

@@ -30,6 +30,8 @@ export class AttendanceComponent {
     this.class_details=res.class_details
 
 
+  },error:(err)=>{
+    console.log(err)
   }
   })
 }

@@ -30,10 +30,10 @@
                 </div>
               
             </div>
-           <div class="d-flex align-items-center justify-content-center gap-5 " *ngFor="let batch of subjects_arry" >
-            <div>
-                <!-- <button type="button " (click)="issubject=true"   class="btn  "  [ngClass]="issubject?'subjects ':'subject'">{{batch}}</button> -->
-               <button (click)="subjects(batch)">{{batch}}</button>
+           <div class="d-flex align-items-center justify-content-center gap-5 "  >
+            <div *ngFor="let batch of subjects_arry">
+                <button type="button " (click)="subjects(batch)" *ngIf="issubject==true"  class="btn  "  [ngClass]="issubject?'subjects ':'subject'">{{batch}}</button>
+               
             </div>
           
            </div>

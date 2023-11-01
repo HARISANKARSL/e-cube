@@ -23,7 +23,7 @@ export class ViewAttendanceComponent {
     next:(res)=>{
     
       this.Date_date=res.distinct_dates
-      console.log(this.Date_date,"attendance")
+    
   
     },error:(err)=>{
     console.log(err)
@@ -45,7 +45,7 @@ export class ViewAttendanceComponent {
       console.log(this.presentDays)
       }
     })
-  console.log(item,"s8dhwsdhwdw item")
+ 
    }
    
 

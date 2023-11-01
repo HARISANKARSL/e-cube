@@ -19,12 +19,11 @@ ngOnInit(){
 
   this.api.getAllClassDetails().subscribe((res)=>{
     this.allBatch=res.class_details
-    console.log(this.allBatch)
-   this.allBatch.map((item:any,index:any)=>{
-    this.subject=item.subjects.split(',')
+  
+   
     
     
-   })
+
    
     
     
@@ -35,7 +34,7 @@ ngOnInit(){
 
 }
 getval(item:any){
- 
+
   this.data =this.allBatch.filter((res:any)=>{ 
     if(res.class_name == item ){
       return res;

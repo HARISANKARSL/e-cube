@@ -73,10 +73,10 @@ openDialog(){
 deleteBatch(id:number){
   
   this.api.deleteStudent(id).subscribe((res)=>{
-    console.log(res,"dsdsd")
+    console.log(res)
     this.toast.success('Batch Deleted Succesfully','Deleted')
     this.reloadpagefunc()
-  console.log(id,"swswsw")
+
   })
  
 

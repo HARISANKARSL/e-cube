@@ -49,7 +49,7 @@ getAllStudents() {
   }
   // update batch
   updateBatch(id: any) {
-    console.log(id)
+   
     return this.http.put<any>(
       `http://13.200.38.169:8002/register/admin/update/class/details/`,id
       
@@ -60,7 +60,7 @@ getAllStudents() {
   
   }
   getUpdatedValue() {
-    console.log(this.setValue,"valuesdffffd")
+
     return this.setValue;
   }
   // delet batch
@@ -74,7 +74,7 @@ getAllStudents() {
   }
   setUpdatedstudentDetails(data: any) {
     this.updateStudentValue.next(data);
-    console.log(data,"updated")
+
   }
   getstudentUpdatedValue() {
     return this.updateStudentValue.asObservable();
@@ -84,7 +84,7 @@ getAllStudents() {
      this.formData = new FormData();
   this.formData.append("media_file", data);
  
-  console.log(item)
+
   return this.http.post<any>(`http://13.200.38.169:8002/student_daily_activities/daily-activities/add/bulk/?batch_year=${item.batch_year}&class_name=${item.class_name}&division=${item.division}`,this.formData)
   }
   // attendance bulk
@@ -92,41 +92,22 @@ getAllStudents() {
  
     this.formDatas = new FormData();
   this.formDatas.append("attendance_file", data);
-console.log(item)
+
   return this.http.post<any>(`http://13.200.38.169:8002/student_attendance/attendance/add/bulk/?batch_year=${item.batch_year}&class_name=${item.class_name}&division=${item.division}&date=${item.date}`,this.formDatas)
 
    }
 // add students marks bulk
 addBulkMarks(data:File,item:any){
-  console.log(item.id,"item of datasfgasjasidj")
+
   this.addBulkMark=new FormData()
   this.addBulkMark.append("exam_results_file", data);
-console.log(item)
+
   return this.http.post<any>(`http://13.200.38.169:8002/student_exam_result/exam-result/add/bulk/?batch_year=${item.batch_year}&class_name=${item.class_name}&division=${item.division}`,this.addBulkMark)
 }
 
-// addBulkMarks(data: File, item: any) {
-//   console.log(item.id, "item of datasfgasjasidj");
-//   const addBulkMark = new FormData();
-//   addBulkMark.append("exam_results_file", data);
-
-//   // Construct query parameters
-//   let params = new HttpParams()
-//     .set('batch_year', item.batch_year)
-//     .set('class_name', item.class_name)
-//     .set('division', item.division);
-
-//   return this.http.post<any>(
-//     'http://13.200.38.169:8002/student_exam_result/exam-result/add/bulk/',
-//     addBulkMark,
-//     { params }
-//   );
-// }
-
-  //  get student activity
 
    getStudentActivities(data:any){
-console.log(data,"sdsdsdsdsddsdsd")
+
     this.id =data;
      
     return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/admin/get/dates/daily-activities/?user_id=${data}`).
@@ -160,8 +141,7 @@ return this.http.get<any>(`http://13.200.38.169:8002/student_daily_activities/ad
   // leader board
   getLeaderBoard(alldata:any,sub:any){
 
-    console.log(alldata[0].batch_year);
-    console.log(sub);
+ 
 
 
     return this.http.get<any>(`http://13.200.38.169:8002/student_leaderboard/admin/get_leaderboard/?batch_year=${alldata[0].batch_year}&class_name=${alldata[0].class_name}&division=${alldata[0].division}&subject=${sub}`)

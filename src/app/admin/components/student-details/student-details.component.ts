@@ -29,7 +29,7 @@ export class StudentDetailsComponent {
         
         this.dataSource = res.all_users;
         this.studentData = this.dataSource.filter((item: any) => {
-          console.log(item,"sasasa")
+         
           if (this.dataID == item.class_name) {
             this.students_details = this.dataID;
             return item;
@@ -45,9 +45,11 @@ export class StudentDetailsComponent {
     this.allData = this.api.getUserData();
 
     this.api.getStudentActivities(this.allData).subscribe({
-      next: (res) => {},
+      next: (res) => {
+        
+      },
       error: (err) => {
-        console.log(err);
+        
       }
     });
     this.route.navigate(['/admin/report']);
