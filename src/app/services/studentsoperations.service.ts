@@ -169,5 +169,7 @@ getMarks(){
   return this.http.get<any>(`http://13.200.38.169:8002/student_exam_result/get/admin/exam-result/?user_id=${this.id.id}`)
 }
 
-
+getStudentData(data:any){
+  return this.http.get<any>(`http://13.200.38.169:8002/register/admin/student/class/get/all/?batch_year=${data.batch_year}&class_name=${data.class_name}&division=${data.division}`)
+}
 }

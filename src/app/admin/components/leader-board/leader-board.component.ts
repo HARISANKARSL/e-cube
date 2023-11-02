@@ -20,13 +20,6 @@ ngOnInit(){
   this.api.getAllClassDetails().subscribe((res)=>{
     this.allBatch=res.class_details
   
-   
-    
-    
-
-   
-    
-    
   })
  
 
@@ -53,7 +46,7 @@ getval(item:any){
     this.api.getLeaderBoard(this.data,batch).subscribe({
       next:(res)=>{
         this.allData=res.leaderboard
-       
+       console.log("test",res)
       }
     })
   }
