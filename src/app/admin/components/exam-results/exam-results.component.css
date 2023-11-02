@@ -74,6 +74,9 @@ mat-form-field{
 
 .header-fixed > tbody > tr > td,
 .header-fixed > thead > tr > th {
-    width: 25%;
+    width: 20%;
     float: left;
+}
+.buttons-sec{
+  min-width: 200px !important;
 }
