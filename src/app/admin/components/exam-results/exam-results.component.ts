@@ -23,22 +23,22 @@ allBatch:any
 
 
   constructor(private api:StudentsoperationsService,private dialog:MatDialog,private toast:ToastrService, private _form:FormBuilder){
+    this.myForm = new FormGroup({
+      selectedBatch: new FormControl(''), // You can set initial values here
+      exam_name: new FormControl(''),
+    });
   
-   this.formData = this._form.group({});
   }
 
-file:any;
-physics:number=0;
-maths:any;
-chemistry:number=0;
+file:any
 data:[]=[]
 studentInfo:StudentInfo[] =[]
 studentData:any;
 subjects_arry:any;
 students:any;
 exam_name:string = "";
-// studentForm:FormGroup;
-formData:FormGroup;
+myForm:FormGroup;
+
 selectedBatch:any;
 allDatas:any[]=[]
 
@@ -64,7 +64,6 @@ allDatas:any[]=[]
     this.api.getAllClassDetails().subscribe((res)=>{
       this.allBatch=res.class_details
     })
-   
     
   }
   uploadMarks(){
@@ -78,8 +77,6 @@ allDatas:any[]=[]
       }
     })
     
-
-  
   
   }
 // addItem(){
@@ -88,77 +85,64 @@ allDatas:any[]=[]
 //   )
 // }
 
-// addItem(subject: string) {
-//   const marks = this.formData.get(${subject}.marks) as FormArray;
-//   marks.push(this._form.control(null));
-// }
 
-getMarks(): AbstractControl[] {
-  return(<FormArray> this.formData.get('marks')).controls
-}
+
   getval() {
-    this.data = this.selectedBatch;
-    console.log("getVal", this.data,"name>>>",this.exam_name)
-
-    //http://13.200.38.169:8002/register/admin/student/class/get/all/?batch_year=2024&class_name=PLUS ONE&division=A
+    this.data = this.myForm.value.selectedBatch;
+    this.exam_name = this.myForm.value.exam_name;
+    console.log("getVal", this.data)
+    //console.log("getVal", this.data,"name>>>",this.data.exam_name)
     this.api.getStudentData(this.data).subscribe((result: any) => {
       console.log("manu>>", result)
-      this.studentData = result.all_users
-      ;
-      for (let student of this.studentData) {
-        student.maths 
-        student.chemistry 
-        student.physics 
-      }
-      console.log(this.studentData,"test")
-      this.students = this.studentData.all_users;
-      this.studentData.all_users.forEach((res: any) => {
-        this.subjects_arry = res.subjects.split(',')
-      });
-
-      
-      console.log( this.subjects_arry )
+      this.studentData = result.all_users;
      
-      this.students.forEach((res:any)=>{
+      console.log(this.studentData,"test")
+      
+      this.studentData.forEach((res: any) => {
+        this.subjects_arry = res.subjects.split(',')
+      })
+      console.log("test>>",this.subjects_arry)
+     
+      this.studentData.forEach((res:any)=>{
         let obj:any ={};
-        this.subjects_arry.forEach((sub:any)=>{
-            obj[sub] = 0
-          })
+        // this.subjects_arry.forEach((sub:any)=>{
+        //     obj[sub] = 0
+        //   })
           obj.admission_no = res.admission_no;
           obj.exam_name = this.exam_name;
-          //obj.sub = this.subjects_arry;
+          obj.sub = this.subjects_arry;
           console.log("obj",obj);
           this.studentInfo.push(obj);
       });
-     
+      console.log("this.studentInfo",this.studentInfo);
   })
 }
 
-addMark(data:any){
-  console.log("hgt",data.elements.this.subjects_arry[0]);
+  addMark(data: any) {
+    //console.log("hgt",data.target[2].value)
+    let datas: any = {}
+    let info: any = []
+    for (let i = 0; i < this.subjects_arry.length + 2; i++) {
+      info.push(data.target[i].value);
+    }
+    console.log("gfh", info);
+    let arra = this.subjects_arry;
+    for (let i = 0, j = 2; j < info.length; i++, j++) {
+      let sub = this.subjects_arry[i];
 
-}
-
-updateData(student: any) {
-  const newData = {
-    admission_no: student.admission_no,
-    exam_name:this.exam_name,
-    physics: student.physics,
-    maths: student.maths,
-    chemistry: student.chemistry
-  };
-
-  this.allDatas.push(newData);
-
- 
-console.log(this.allDatas)
-}
-
-
+      datas[sub] = info[j];
+    }
+    datas.admission_no = info[0];
+    datas.exam_name = info[1];
+    console.log("gfdfh", datas);
+    this.allDatas.push(datas);
+  }
 upload(){
+  console.log(this.allDatas)
+this.api.upload_sudent_mark(this.allDatas).subscribe((res:any)=>{
+    console.log(res)
+})
 
-  this.api.upload_sudent_mark(this.allDatas).subscribe((res:any)=>{
-    console.log(res);
- })
 }
+
 }
