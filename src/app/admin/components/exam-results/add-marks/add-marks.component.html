@@ -1,0 +1,23 @@
+<div *ngFor="let obj of students; let i = index">
+    <form (ngSubmit)="onSubmit(i)">
+      <mat-form-field *ngFor = "let key in obj">
+        <mat-label>Admission Number</mat-label>
+        <input matInput type="text" [(ngModel)]="obj.admission_no" [disabled]="true">
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width ms-5">
+        <mat-label>Exam Name</mat-label>
+        <input matInput type="text" [(ngModel)]="obj.exam_name" [disabled]="true">
+      </mat-form-field>
+  
+      <div *ngFor="let subject of obj.sub; let j = index">
+        <mat-form-field>
+          <mat-label>{{ subject }}</mat-label>
+          <input matInput type="text" name="marks" [(ngModel)]="obj.sub[j].marks">
+        </mat-form-field>
+      </div>
+  
+      <button mat-raised-button type="submit">Submit</button>
+    </form>
+  </div>
+  

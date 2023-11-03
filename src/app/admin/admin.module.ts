@@ -44,6 +44,7 @@ import { VieeDailyClassDetailsComponent } from './components/viee-daily-class-de
 import { ViewAttendanceComponent } from './components/view-attendance/view-attendance.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ViewMarksComponent } from './components/view-marks/view-marks.component';
+import { AddMarksComponent } from './components/exam-results/add-marks/add-marks.component';
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -67,6 +68,7 @@ import { ViewMarksComponent } from './components/view-marks/view-marks.component
     VieeDailyClassDetailsComponent,
     ViewAttendanceComponent,
     ViewMarksComponent,
+    AddMarksComponent,
     
 
     
