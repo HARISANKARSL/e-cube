@@ -27,7 +27,10 @@ allBatch:any
    this.formData = this._form.group({});
   }
 
-file:any
+file:any;
+physics:number=0;
+maths:any;
+chemistry:number=0;
 data:[]=[]
 studentInfo:StudentInfo[] =[]
 studentData:any;
@@ -62,6 +65,7 @@ allDatas:any[]=[]
       this.allBatch=res.class_details
     })
    
+    
   }
   uploadMarks(){
     this.api.addBulkMarks(this.file,this.data).subscribe({
@@ -74,6 +78,8 @@ allDatas:any[]=[]
       }
     })
     
+
+  
   
   }
 // addItem(){
@@ -99,12 +105,19 @@ getMarks(): AbstractControl[] {
       console.log("manu>>", result)
       this.studentData = result.all_users
       ;
+      for (let student of this.studentData) {
+        student.maths 
+        student.chemistry 
+        student.physics 
+      }
       console.log(this.studentData,"test")
       this.students = this.studentData.all_users;
       this.studentData.all_users.forEach((res: any) => {
         this.subjects_arry = res.subjects.split(',')
-      })
-      console.log("test>>",this.subjects_arry)
+      });
+
+      
+      console.log( this.subjects_arry )
      
       this.students.forEach((res:any)=>{
         let obj:any ={};
@@ -117,7 +130,7 @@ getMarks(): AbstractControl[] {
           console.log("obj",obj);
           this.studentInfo.push(obj);
       });
-      console.log("this.studentInfo",this.studentInfo);
+     
   })
 }
 
@@ -125,12 +138,30 @@ addMark(data:any){
   console.log("hgt",data.elements.this.subjects_arry[0]);
 
 }
-upload(){
-this.studentData.forEach((res:any)=>{
-  console.log(res.admission_no,"sdsdsd")
-})
-}
-updateData(){
+
+updateData(student: any) {
+  const newData = {
+    admission_no: student.admission_no,
+    exam_name:this.exam_name,
+    physics: student.physics,
+    maths: student.maths,
+    chemistry: student.chemistry,
+    
+  };
+
+  this.allDatas.push(newData);
+
+ 
 
 }
+
+
+upload(){
+
+  this.api.upload_sudent_mark(this.allDatas).subscribe((res:any)=>{
+    console.log(res);
+ })
 }
+}
+
+

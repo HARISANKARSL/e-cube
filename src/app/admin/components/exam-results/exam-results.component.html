@@ -64,31 +64,34 @@
       </div>
       <table class="table">
         <thead>
-          <tr>
+          <tr >
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">name</th>
+            <th scope="col">maths</th>
+            <th scope="col">physics</th>
+            <th scope="col">chemistry</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let items of studentData" >
-            <th scope="row">1</th>
-            <td>{{items.name}}</td>
+          <tr *ngFor="let student of studentData; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ student.name }}</td>
             <td>
-              <input type="text" >
+              <input type="text" [(ngModel)]="student.maths">
             </td>
             <td>
-              <input type="text">
+              <input type="text" [(ngModel)]="student.chemistry">
             </td>
             <td>
-              <button (click)="updateData()">update</button>
+              <input type="text" [(ngModel)]="student.physics">
+            </td>
+            <td>
+              <button (click)="updateData(student)">Update</button>
             </td>
           </tr>
-         
-          
         </tbody>
       </table>
+      
       
       <div>
         <div class="text-end m-2" >
@@ -97,3 +100,5 @@
       </div>
    
 </div>
+
+
