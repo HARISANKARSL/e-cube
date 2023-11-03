@@ -37,7 +37,7 @@ exam_name:string = "";
 // studentForm:FormGroup;
 formData:FormGroup;
 selectedBatch:any;
-
+allDatas:any[]=[]
 
 
   
@@ -97,7 +97,9 @@ getMarks(): AbstractControl[] {
     //http://13.200.38.169:8002/register/admin/student/class/get/all/?batch_year=2024&class_name=PLUS ONE&division=A
     this.api.getStudentData(this.data).subscribe((result: any) => {
       console.log("manu>>", result)
-      this.studentData = result;
+      this.studentData = result.all_users
+      ;
+      console.log(this.studentData,"test")
       this.students = this.studentData.all_users;
       this.studentData.all_users.forEach((res: any) => {
         this.subjects_arry = res.subjects.split(',')
@@ -121,6 +123,14 @@ getMarks(): AbstractControl[] {
 
 addMark(data:any){
   console.log("hgt",data.elements.this.subjects_arry[0]);
+
+}
+upload(){
+this.studentData.forEach((res:any)=>{
+  console.log(res.admission_no,"sdsdsd")
+})
+}
+updateData(){
 
 }
 }
