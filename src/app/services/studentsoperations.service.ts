@@ -176,8 +176,8 @@ getStudentData(data:any){
   return this.http.get<any>(this.baseUrl+`register/admin/student/class/get/all/?batch_year=${data.batch_year}&class_name=${data.class_name}&division=${data.division}`)
 }
 
-upload_sudent_mark(data:any){
-  return this.http.post<any>(`http://13.200.38.169/student_exam_result/exam-result/add/?batch_year=2024&class_name=PLUS ONE&division=A`,data)
+upload_sudent_mark(data:any,item:any){
+  return this.http.post<any>(`http://13.200.38.169/student_exam_result/exam-result/add/?batch_year=${item.batch_year}&class_name=${item.class_name}&division=${item.division}`,data)
 }
 
 }

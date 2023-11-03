@@ -98,9 +98,15 @@ allDatas:any[]=[]
      
       console.log(this.studentData,"test")
       
-      this.studentData.forEach((res: any) => {
-        this.subjects_arry = res.subjects.split(',')
-      })
+      this.studentData.forEach((student: any) => {
+        this.subjects_arry = student.subjects.split(',').map((subject: string) => {
+          return subject.toLowerCase();
+        });
+      });
+
+    
+
+      
       console.log("test>>",this.subjects_arry)
      
       this.studentData.forEach((res:any)=>{
@@ -139,7 +145,7 @@ allDatas:any[]=[]
   }
 upload(){
   console.log(this.allDatas)
-this.api.upload_sudent_mark(this.allDatas).subscribe((res:any)=>{
+this.api.upload_sudent_mark(this.allDatas,this.data).subscribe((res:any)=>{
     console.log(res)
 })
 
