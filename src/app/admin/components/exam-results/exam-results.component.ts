@@ -40,7 +40,7 @@ exam_name:string = "";
 // studentForm:FormGroup;
 formData:FormGroup;
 selectedBatch:any;
-
+allDatas:any[]=[]
 
 
   
@@ -88,10 +88,10 @@ selectedBatch:any;
 //   )
 // }
 
-addItem(subject: string) {
-  const marks = this.formData.get(`${subject}.marks`) as FormArray;
-  marks.push(this._form.control(null));
-}
+// addItem(subject: string) {
+//   const marks = this.formData.get(${subject}.marks) as FormArray;
+//   marks.push(this._form.control(null));
+// }
 
 getMarks(): AbstractControl[] {
   return(<FormArray> this.formData.get('marks')).controls
@@ -118,9 +118,6 @@ getMarks(): AbstractControl[] {
 
       
       console.log( this.subjects_arry )
-        console.log(this.subjects_arry,"sdsdd")
-      })
-      console.log("test>>",this.subjects_arry)
      
       this.students.forEach((res:any)=>{
         let obj:any ={};
@@ -148,14 +145,13 @@ updateData(student: any) {
     exam_name:this.exam_name,
     physics: student.physics,
     maths: student.maths,
-    chemistry: student.chemistry,
-    
+    chemistry: student.chemistry
   };
 
   this.allDatas.push(newData);
 
  
-
+console.log(this.allDatas)
 }
 
 
@@ -165,13 +161,4 @@ upload(){
     console.log(res);
  })
 }
-}
-
-
-upload(){
-this.studentData.forEach((res:any)=>{
-  console.log(res.admission_no,"sdsdsd")
-})
-}
-updateData(){}
 }
