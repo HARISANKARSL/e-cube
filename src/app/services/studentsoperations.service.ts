@@ -157,7 +157,7 @@ return this.http.get<any>( this.baseUrl+`student_daily_activities/admin/get/dail
       
 getStudentAttendance(){
 
-  return this.http.get<any>(this.baseUrl+`/student_attendance/admin/attendance/get/status/?user_id=${this.id.id}`)
+  return this.http.get<any>(this.baseUrl+`student_attendance/admin/attendance/get/status/?user_id=${this.id.id}`)
 
 
  
@@ -165,14 +165,17 @@ getStudentAttendance(){
 
 
 getAttendnace(data:any){
-  return this.http.get<any>(this.baseUrl+`/student_attendance/admin/attendance/get/?user_id=${this.id.id}&month_year_number=${data}`)
+  return this.http.get<any>(this.baseUrl+`student_attendance/admin/attendance/get/?user_id=${this.id.id}&month_year_number=${data}`)
 }
 
 getMarks(){
-  return this.http.get<any>(this.baseUrl+`/student_exam_result/get/admin/exam-result/?user_id=${this.id.id}`)
+  return this.http.get<any>(this.baseUrl+`student_exam_result/get/admin/exam-result/?user_id=${this.id.id}`)
 }
 
 getStudentData(data:any){
   return this.http.get<any>(this.baseUrl+`register/admin/student/class/get/all/?batch_year=${data.batch_year}&class_name=${data.class_name}&division=${data.division}`)
 }
+
+
+
 }
