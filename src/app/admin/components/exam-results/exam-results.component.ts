@@ -40,7 +40,7 @@ exam_name:string = "";
 // studentForm:FormGroup;
 formData:FormGroup;
 selectedBatch:any;
-allDatas:any[]=[]
+
 
 
   
@@ -118,6 +118,9 @@ getMarks(): AbstractControl[] {
 
       
       console.log( this.subjects_arry )
+        console.log(this.subjects_arry,"sdsdd")
+      })
+      console.log("test>>",this.subjects_arry)
      
       this.students.forEach((res:any)=>{
         let obj:any ={};
@@ -165,3 +168,10 @@ upload(){
 }
 
 
+upload(){
+this.studentData.forEach((res:any)=>{
+  console.log(res.admission_no,"sdsdsd")
+})
+}
+updateData(){}
+}
