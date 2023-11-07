@@ -38,7 +38,8 @@ subjects_arry:any;
 students:any;
 exam_name:string = "";
 myForm:FormGroup;
-
+batch:any
+division:any;
 selectedBatch:any;
 allDatas:any[]=[]
 
@@ -79,19 +80,18 @@ allDatas:any[]=[]
     
   
   }
-// addItem(){
-//   (this.formData.get('marks') as FormArray).push(
-//     this._form.control(null)
-//   )
-// }
+
 
 
 
   getval() {
     this.data = this.myForm.value.selectedBatch;
+    this.batch=this.data;
+    this.division=this.batch.class_name;
+    console.log(this.division.class_name,"sdsdsdsd")
     this.exam_name = this.myForm.value.exam_name;
     console.log("getVal", this.data)
-    //console.log("getVal", this.data,"name>>>",this.data.exam_name)
+    
     this.api.getStudentData(this.data).subscribe((result: any) => {
       console.log("manu>>", result)
       this.studentData = result.all_users;
@@ -99,6 +99,7 @@ allDatas:any[]=[]
       console.log(this.studentData,"test")
       
       this.studentData.forEach((student: any) => {
+      
         this.subjects_arry = student.subjects.split(',').map((subject: string) => {
           return subject.toLowerCase();
         });
@@ -111,10 +112,7 @@ allDatas:any[]=[]
      
       this.studentData.forEach((res:any)=>{
         let obj:any ={};
-        // this.subjects_arry.forEach((sub:any)=>{
-        //     obj[sub] = 0
-        //   })
-          obj.admission_no = res.admission_no;
+          obj.name = res.name;
           obj.exam_name = this.exam_name;
           obj.sub = this.subjects_arry;
           console.log("obj",obj);
@@ -125,7 +123,6 @@ allDatas:any[]=[]
 }
 
   addMark(data: any) {
-    //console.log("hgt",data.target[2].value)
     let datas: any = {}
     let info: any = []
     for (let i = 0; i < this.subjects_arry.length + 2; i++) {
