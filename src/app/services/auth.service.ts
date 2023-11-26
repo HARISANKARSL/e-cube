@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl:string="http://13.200.38.169"
+  baseUrl:string="https://sapadminportal.online"
   constructor(private http:HttpClient,private route:Router) { }
 
   adminLogin(auth:any){

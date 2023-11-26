@@ -20,7 +20,7 @@ addBulkMark:any
   
   constructor(private http: HttpClient) {}
  
-baseUrl:string="http://13.200.38.169/"
+baseUrl:string="https://sapadminportal.online/"
 
 
 // get all students
