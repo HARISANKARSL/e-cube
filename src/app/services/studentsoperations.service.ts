@@ -182,8 +182,14 @@ upload_sudent_mark(data:any,item:any){
 
 // class updates
 
-getLinks(){
-  return this.http.get<any>("https://sapadminportal.online/class/updates/get/link/?class_name=PLUS TWO&batch_year=2023&division=B")
+getLinks(class_name:any,division:any,batch_year:any){
+     console.log(class_name)
+     console.log(division)
+     console.log(batch_year)
+  return this.http.get<any>(`https://sapadminportal.online/class/updates/get/link/?class_name=${class_name}&batch_year=${batch_year}&division=${division}`)
 }
+
+
+
 
 }

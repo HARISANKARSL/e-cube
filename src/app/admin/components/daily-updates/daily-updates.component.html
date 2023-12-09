@@ -12,7 +12,7 @@
                 <mat-label>Choose Class</mat-label>
                 <mat-select >
 
-                    <mat-option value="{{data.class_name}}" *ngFor="let data of classes" >
+                    <mat-option value="{{data.class_name}}" *ngFor="let data of classes"  (click)="getval1(data.class_name)" >
                       {{data.class_name}}
                     </mat-option>
                 
@@ -32,7 +32,7 @@
                    <mat-label>Choose Division</mat-label>
                    <mat-select >
    
-                    <mat-option value="{{data.class_name}}" *ngFor="let data of classes" >
+                    <mat-option value="{{data.division}}" *ngFor="let data of classes" (click)="getval2(data.division)" >
                         {{data.division}}
                       </mat-option>
                   
@@ -53,9 +53,9 @@
                    <mat-label>Choose year</mat-label>
                    <mat-select >
    
-                    <mat-option value="{{data.class_name}}" *ngFor="let data of classes" >
+                    <mat-option value="{{data.class_name}}" *ngFor="let data of classes" (click)="getval3(data.batch_year)" >
                         {{data.batch_year}}
-                      </mat-option>
+                      </mat-option >
                    
                    </mat-select>
                  </mat-form-field>
@@ -66,7 +66,7 @@
        </mat-card>
 
    <div>
-    <button class="btn btn-outline-danger p-3 bolder" style="width: 200px;">Submit</button>
+    <button class="btn btn-outline-danger p-3 bolder" style="width: 200px;" (click)="submittt()">Submit</button>
    </div>
     </div>
 </div>
