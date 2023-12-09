@@ -180,4 +180,10 @@ upload_sudent_mark(data:any,item:any){
   return this.http.post<any>(`http://13.200.38.169/student_exam_result/exam-result/add/?batch_year=${item.batch_year}&class_name=${item.class_name}&division=${item.division}`,data)
 }
 
+// class updates
+
+getLinks(){
+  return this.http.get<any>("https://sapadminportal.online/class/updates/get/link/?class_name=PLUS TWO&batch_year=2023&division=B")
+}
+
 }

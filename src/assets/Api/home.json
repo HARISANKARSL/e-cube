@@ -27,6 +27,12 @@
      },
      {
     
+      "img":"./assets/images/onlinecls.png",
+      "title":" Daily  Class Updates",
+      "route":"/admin/dailyupdates"
+   },
+     {
+    
         "img":"./assets/images/chatbot.png",
         "title":"Chat Box",
         "route":"/admin/chatbox"

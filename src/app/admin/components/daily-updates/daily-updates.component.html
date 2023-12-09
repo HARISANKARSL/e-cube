@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="py-3 text-center">
+        <h1>Daily Class Updates</h1>
+    </div>
+    <div class="d-flex align-items-center justify-content-center gap-5 my-5 daily-update">
+        <mat-card class="p-3" >
+     <div class="">
+        <div class="py-2">
+            <h2>Select Class</h2>
+            <mat-form-field>
+          
+                <mat-label>Choose Class</mat-label>
+                <mat-select >
+
+                    <mat-option value="{{data.class_name}}" *ngFor="let data of classes" >
+                      {{data.class_name}}
+                    </mat-option>
+                
+                </mat-select>
+              </mat-form-field>
+        </div>
+      
+     </div>
+       
+    </mat-card>
+    <mat-card class="p-3" >
+        <div class="">
+           <div class="py-2">
+               <h2>Select  Division</h2>
+               <mat-form-field>
+             
+                   <mat-label>Choose Division</mat-label>
+                   <mat-select >
+   
+                    <mat-option value="{{data.class_name}}" *ngFor="let data of classes" >
+                        {{data.division}}
+                      </mat-option>
+                  
+                   
+                   </mat-select>
+                 </mat-form-field>
+           </div>
+         
+        </div>
+          
+       </mat-card>
+       <mat-card class="p-3" >
+        <div class="">
+           <div class="py-2">
+               <h2>Select Year</h2>
+               <mat-form-field>
+             
+                   <mat-label>Choose year</mat-label>
+                   <mat-select >
+   
+                    <mat-option value="{{data.class_name}}" *ngFor="let data of classes" >
+                        {{data.batch_year}}
+                      </mat-option>
+                   
+                   </mat-select>
+                 </mat-form-field>
+           </div>
+         
+        </div>
+          
+       </mat-card>
+
+   <div>
+    <button class="btn btn-outline-danger p-3 bolder" style="width: 200px;">Submit</button>
+   </div>
+    </div>
+</div>

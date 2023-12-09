@@ -17,7 +17,7 @@ export class BatchComponent {
   show:boolean=true
   alldata:[]=[]
   updated:any
-  
+  dltbyid:any
 constructor(private api:StudentsoperationsService,private active:ActivatedRoute,private route:Router,private dialog:MatDialog,private toast:ToastrService){}
 ngOnInit(){
 
@@ -70,9 +70,14 @@ openDialog(){
 
 
 }
-deleteBatch(id:number){
+
+deleteById(id:any){
+  this.dltbyid=id
+}
+
+deleteBatch(){
   
-  this.api.deleteStudent(id).subscribe((res)=>{
+  this.api.deleteStudent(this.dltbyid).subscribe((res)=>{
     console.log(res)
     this.toast.success('Batch Deleted Succesfully','Deleted')
     this.reloadpagefunc()

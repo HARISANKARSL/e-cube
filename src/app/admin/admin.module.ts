@@ -45,6 +45,7 @@ import { ViewAttendanceComponent } from './components/view-attendance/view-atten
 import {MatTabsModule} from '@angular/material/tabs';
 import { ViewMarksComponent } from './components/view-marks/view-marks.component';
 import { AddMarksComponent } from './components/exam-results/add-marks/add-marks.component';
+import { DailyUpdatesComponent } from './components/daily-updates/daily-updates.component';
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -69,6 +70,7 @@ import { AddMarksComponent } from './components/exam-results/add-marks/add-marks
     ViewAttendanceComponent,
     ViewMarksComponent,
     AddMarksComponent,
+    DailyUpdatesComponent,
     
 
     

@@ -16,6 +16,7 @@ import { ViewStudentComponent } from './components/view-student/view-student.com
 import { VieeDailyClassDetailsComponent } from './components/viee-daily-class-details/viee-daily-class-details.component';
 import { ViewAttendanceComponent } from './components/view-attendance/view-attendance.component';
 import { ViewMarksComponent } from './components/view-marks/view-marks.component';
+import { DailyUpdatesComponent } from './components/daily-updates/daily-updates.component';
 
 const routes: Routes = [
  {
@@ -65,6 +66,8 @@ path:"add-attendance",component:AttendanceComponent
     path:"viewAttendnace",component:ViewAttendanceComponent
   },{
     path:"leaderboard",component:LeaderBoardComponent
+  },{
+    path:"dailyupdates",component:DailyUpdatesComponent
   },
   {
     path:"viewMarks",component:ViewMarksComponent
