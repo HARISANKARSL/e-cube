@@ -70,7 +70,10 @@
    </div>
     </div>
 <!--  -->
-    <div >
+
+
+
+    <div  *ngIf="subjects && subjects.length > 0">
         <mat-card class="p-3" >
      <div class="d-flex align-items-center justify-content-center gap-5 my-5 daily-update">
         <div class="py-2">
@@ -80,9 +83,9 @@
                 <mat-label>Choose Subject</mat-label>
                 <mat-select >
 
-                    <mat-option value="{{datas.subject}}"  *ngFor="let datas of subjects">
+                    <mat-option value="{{datas.subject}}"  *ngFor="let datas of subjects"  (click)="getid(datas)" >
                         {{datas.subject}}
-                    </mat-option>
+                    </mat-option >
                 
                 </mat-select>
               </mat-form-field>
@@ -93,7 +96,7 @@
                 
                 <mat-form-field appearance="outline">
                  <mat-label>Enter Topic</mat-label>
-                 <input matInput placeholder="eg:-matrix">
+                 <input matInput placeholder="eg:-matrix" [(ngModel)]="topic" >
                 
                </mat-form-field>
                  
@@ -109,7 +112,7 @@
                 
                 <mat-form-field appearance="outline">
                  <mat-label>Enter link</mat-label>
-                 <input matInput placeholder="eg:-https://meet.google.com/wcp-qfbe-">
+                 <input matInput placeholder="eg:-https://meet.google.com/wcp-qfbe-" [(ngModel)]="link" >
                 
                </mat-form-field>
                  

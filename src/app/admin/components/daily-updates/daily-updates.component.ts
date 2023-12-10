@@ -13,13 +13,17 @@ export class DailyUpdatesComponent {
   id:any
   classes:any
   subjects:any
+  sub_id:number=0;
+  sub:string="";
+  link:any;
+  topic:any;
 constructor(private api:StudentsoperationsService){}
 
 ngOnInit(){
   this.api. getAllClassDetails().subscribe({
     next:(res)=>{
      this.classes=res.class_details
-     console.log(this.classes)
+     
     }
   })
 }
@@ -34,11 +38,40 @@ getval3(data:any){this.year=data;}
     this.api. getLinks(this.classname,this.division,this.year).subscribe({
       next:(res)=>{
         this.subjects=res.class_links
-       console.log(this.subjects)
+       
       }
     })
   }
-  upload(){
-  console.log(this.id)
+ 
+
+
+
+  getid(data:any){
+    this.sub_id =data.id
+    this.sub=data.subject
+   
   }
+
+  upload(){
+
+    let data ={
+      class_name: this.classname,
+      batch_year: this.year,
+      division: this.division,
+      subject: this.sub,
+      link: this.link,
+      topic: this.topic
+    }
+
+
+
+    this.api.updateLink(this.sub_id,data).subscribe({
+      next:(res)=>{
+          console.log(res)
+      }
+    }) 
+   }
+
+
+
 }

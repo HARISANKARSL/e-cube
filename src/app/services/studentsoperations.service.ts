@@ -189,8 +189,8 @@ getLinks(class_name:any,division:any,batch_year:any){
   return this.http.get<any>(this.baseUrl+`class/updates/get/link/?class_name=${class_name}&batch_year=${batch_year}&division=${division}`)
 }
 
-updateLink(data:any){
-  return this.http.put<any>(`https://sapadminportal.online/class/updates/update/link/?link_id=16`,data)
+updateLink(id:any,obj:any){
+  return this.http.put<any>(`https://sapadminportal.online/class/updates/update/link/?link_id=${id}`,obj)
 }
 
 
