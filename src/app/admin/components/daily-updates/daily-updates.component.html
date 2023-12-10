@@ -69,4 +69,66 @@
     <button class="btn btn-outline-danger p-3 bolder" style="width: 200px;" (click)="submittt()">Submit</button>
    </div>
     </div>
+<!--  -->
+    <div >
+        <mat-card class="p-3" >
+     <div class="d-flex align-items-center justify-content-center gap-5 my-5 daily-update">
+        <div class="py-2">
+            <h2>Select Subject</h2>
+            <mat-form-field>
+          
+                <mat-label>Choose Subject</mat-label>
+                <mat-select >
+
+                    <mat-option value="{{datas.subject}}"  *ngFor="let datas of subjects">
+                        {{datas.subject}}
+                    </mat-option>
+                
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="">
+            <div class="py-2">
+                <h2>Enter  Topic</h2>
+                
+                <mat-form-field appearance="outline">
+                 <mat-label>Enter Topic</mat-label>
+                 <input matInput placeholder="eg:-matrix">
+                
+               </mat-form-field>
+                 
+            </div>
+          
+         </div>
+           
+      
+      
+         <div class="">
+            <div class="py-2">
+                <h2>Select  Division</h2>
+                
+                <mat-form-field appearance="outline">
+                 <mat-label>Enter link</mat-label>
+                 <input matInput placeholder="eg:-https://meet.google.com/wcp-qfbe-">
+                
+               </mat-form-field>
+                 
+            </div>
+          
+         </div> 
+         <div >
+            <button class="btn btn-outline-danger p-3 bolder" style="width: 200px;" (click)="upload()" >Upload</button>
+           </div>
+     </div>
+       
+    
+     
+   
+        
+          
+       </mat-card>
+          
+      
+      
+    </div>
 </div>

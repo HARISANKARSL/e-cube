@@ -8,9 +8,11 @@ import { StudentsoperationsService } from 'src/app/services/studentsoperations.s
 })
 export class DailyUpdatesComponent {
   classname:any;
-  divition:any;
+  division:any;
   year:any;
+  id:any
   classes:any
+  subjects:any
 constructor(private api:StudentsoperationsService){}
 
 ngOnInit(){
@@ -24,16 +26,19 @@ ngOnInit(){
 
 
 getval1(data:any){this.classname=data;}
-getval2(data:any){this.divition=data;}
+getval2(data:any){this.division=data;}
 getval3(data:any){this.year=data;}
 
 
   submittt(){
-    this.api. getLinks(this.classname,this.divition,this.year).subscribe({
+    this.api. getLinks(this.classname,this.division,this.year).subscribe({
       next:(res)=>{
-        console.log(res,"hello")
+        this.subjects=res.class_links
+       console.log(this.subjects)
       }
     })
   }
-
+  upload(){
+  console.log(this.id)
+  }
 }
