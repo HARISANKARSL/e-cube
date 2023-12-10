@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { StudentsoperationsService } from 'src/app/services/studentsoperations.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class DailyUpdatesComponent {
   sub:string="";
   link:any;
   topic:any;
-constructor(private api:StudentsoperationsService){}
+constructor(private api:StudentsoperationsService,private toast:ToastrService){}
 
 ngOnInit(){
   this.api. getAllClassDetails().subscribe({
@@ -61,13 +62,18 @@ getval3(data:any){this.year=data;}
       subject: this.sub,
       link: this.link,
       topic: this.topic
+    
     }
 
 
 
     this.api.updateLink(this.sub_id,data).subscribe({
       next:(res)=>{
-          console.log(res)
+          this.toast.success("success")
+          setTimeout(() => {
+            location.reload()
+          }, 2000);
+          
       }
     }) 
    }
