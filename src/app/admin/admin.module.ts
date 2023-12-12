@@ -46,6 +46,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ViewMarksComponent } from './components/view-marks/view-marks.component';
 import { AddMarksComponent } from './components/exam-results/add-marks/add-marks.component';
 import { DailyUpdatesComponent } from './components/daily-updates/daily-updates.component';
+import { VideoclassesComponent } from './components/videoclasses/videoclasses.component';
+import { AnnouncementComponent } from './components/announcement/announcement.component';
+
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -71,6 +74,8 @@ import { DailyUpdatesComponent } from './components/daily-updates/daily-updates.
     ViewMarksComponent,
     AddMarksComponent,
     DailyUpdatesComponent,
+    VideoclassesComponent,
+    AnnouncementComponent,
     
 
     

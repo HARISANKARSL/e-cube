@@ -17,6 +17,8 @@ import { VieeDailyClassDetailsComponent } from './components/viee-daily-class-de
 import { ViewAttendanceComponent } from './components/view-attendance/view-attendance.component';
 import { ViewMarksComponent } from './components/view-marks/view-marks.component';
 import { DailyUpdatesComponent } from './components/daily-updates/daily-updates.component';
+import { VideoclassesComponent } from './components/videoclasses/videoclasses.component';
+import { AnnouncementComponent } from './components/announcement/announcement.component';
 
 const routes: Routes = [
  {
@@ -68,6 +70,12 @@ path:"add-attendance",component:AttendanceComponent
     path:"leaderboard",component:LeaderBoardComponent
   },{
     path:"dailyupdates",component:DailyUpdatesComponent
+  }
+  ,{
+    path:"videoclass",component:VideoclassesComponent
+  },
+  {
+    path:"anouncement",component:AnnouncementComponent
   },
   {
     path:"viewMarks",component:ViewMarksComponent

@@ -31,6 +31,18 @@
       "title":" Daily  Class Updates",
       "route":"/admin/dailyupdates"
    },
+   {
+    
+      "img":"./assets/images/video-classes.avif",
+      "title":" Video  Class ",
+      "route":"/admin/videoclass"
+   },
+   {
+    
+      "img":"./assets/images/anouncemnt.jpg",
+      "title":" Anouncements ",
+      "route":"/admin/anouncement"
+   },
      {
     
         "img":"./assets/images/chatbot.png",
