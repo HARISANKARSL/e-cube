@@ -39,7 +39,7 @@
     <mat-header-cell *matHeaderCellDef> ACADEMIC REPORT </mat-header-cell>
     <mat-cell *matCellDef="let element">
       <button class="btn btn-success mx-2" routerLink="/admin/report" (click)="openfun(element)">Report</button>  
-      <button class="btn btn-danger mx-2" routerLink="/admin/viewStudent">View</button>  
+      <button class="btn btn-danger mx-2" routerLink="/admin/viewStudent" (click)="view(element)">View</button>  
     </mat-cell>
   </ng-container>
 

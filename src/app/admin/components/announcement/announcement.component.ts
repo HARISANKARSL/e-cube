@@ -67,19 +67,24 @@ createAnouncement(){
 delete(data:any) {
   this.anouncementData=data.announcement;
   this.anouncementDate=data.upload_date
+  console.log(data,"dlt")
  let  setdata = {
+ 
     upload_date: this.anouncementDate,
     announcement:this.anouncementData 
    
   };
   
-
-  this.api.deleteAnouncement(setdata).subscribe({
+  
+ 
+  this.api.deleteAnouncement( setdata ).subscribe({
     next: (res) => {
       console.log(res);
+this.toast.success("Successfully deleted","Delete Success")
+location.reload();
     },
-    error: (err) => {
-      console.log(err);
+    error: (error) => {
+      console.error(error);
     }
   });
 }

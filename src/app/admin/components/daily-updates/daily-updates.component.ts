@@ -49,8 +49,11 @@ getval3(data:any){this.year=data;}
   submittt(){
     this.api. getLinks(this.classname,this.division,this.year).subscribe({
       next:(res)=>{
+        if(res==null){
+          this.toast.error("This field cant be empty","error")
+        }
         this.subjects=res.class_links
-       
+      
       }
     })
   }

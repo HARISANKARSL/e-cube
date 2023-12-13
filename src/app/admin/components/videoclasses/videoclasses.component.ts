@@ -47,6 +47,9 @@ getval3(data:any){this.year=data;}
   submittt(){
     this.api.getRecordLists(this.classname,this.division,this.year).subscribe({
       next:(res)=>{
+        if(res==null){
+          this.toast.error("This field cant be empty","error")
+        }
         this.subjects=res.recordings
        console.log(res)
       }

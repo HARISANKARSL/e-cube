@@ -41,9 +41,10 @@ export class StudentDetailsComponent {
   }
 
   openfun(id: any) {
+  
     this.api.setuserdata(id);
     this.allData = this.api.getUserData();
-
+console.log(this.allData,"alll")
     this.api.getStudentActivities(this.allData).subscribe({
       next: (res) => {
         
@@ -53,5 +54,10 @@ export class StudentDetailsComponent {
       }
     });
     this.route.navigate(['/admin/report']);
+  }
+  view(id:any){
+    this.api.setuserdata(id);
+    this.allData = this.api.getUserData();
+    console.log(this.allData,"all")
   }
 }

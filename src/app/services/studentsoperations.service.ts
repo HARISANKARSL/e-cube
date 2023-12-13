@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 
@@ -60,6 +60,7 @@ getAllStudents() {
     );}
   setUpdatedValue(data: any) {
     this.setValue = data;
+
   
   }
   getUpdatedValue() {
@@ -154,7 +155,7 @@ return this.http.get<any>( this.baseUrl+`student_daily_activities/admin/get/dail
 
 
 
-      
+      // students attendance get individual
 getStudentAttendance(){
 
   return this.http.get<any>(this.baseUrl+`student_attendance/admin/attendance/get/status/?user_id=${this.id.id}`)
@@ -167,7 +168,7 @@ getStudentAttendance(){
 getAttendnace(data:any){
   return this.http.get<any>(this.baseUrl+`student_attendance/admin/attendance/get/?user_id=${this.id.id}&month_year_number=${data}`)
 }
-
+//  get mark
 getMarks(){
   return this.http.get<any>(this.baseUrl+`student_exam_result/get/admin/exam-result/?user_id=${this.id.id}`)
 }
@@ -190,24 +191,42 @@ updateLink(id:any,obj:any){
   return this.http.put<any>(this.baseUrl+`class/updates/update/link/?link_id=${id}`,obj)
 }
 getRecordLists(class_name:any,division:any,batch_year:any){
-  console.log(class_name,division,batch_year)
-return this.http.get<any>(`https://sapadminportal.online/class/updates/recordings/operation/?class_name=${class_name}&batch_year=${batch_year}&division=${division}`)
+
+return this.http.get<any>(this.baseUrl+`class/updates/recordings/operation/?class_name=${class_name}&batch_year=${batch_year}&division=${division}`)
 }
 addVideos(data:any){
   return this.http.post<any>(this.baseUrl+`class/updates/recordings/operation/`,data)
 }
 addAnouncement(data:any){
-  return this.http.post<any>("https://sapadminportal.online/class/updates/announcement/operation/",data)
+  return this.http.post<any>(this.baseUrl+"class/updates/announcement/operation/",data)
 }
 getAnouncement(){
   return this.http.get<any>(this.baseUrl+'class/updates/announcement/operation/')
 }
-deleteAnouncement(anouncement:any){
-  return this.http.delete<any>('https://sapadminportal.online/class/updates/announcement/operation/',anouncement)
+deleteAnouncement(data:any){
+  const options = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+    body: data, 
+  };
+
+  return this.http.delete<any>(this.baseUrl+"class/updates/announcement/operation/", options);
 }
 updateAnouncement(data:any){
-  return this.http.put<any>('https://sapadminportal.online/class/updates/announcement/operation/',data)
+  return this.http.put<any>(this.baseUrl+'class/updates/announcement/operation/',data)
 }
 
+
+deleteStudentIndividual(data: any): Observable<any> {
+  const options = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+    body: data, 
+  };
+
+  return this.http.delete<any>(this.baseUrl+"register/admin/student/delete/ind/", options);
+}
 
 }
