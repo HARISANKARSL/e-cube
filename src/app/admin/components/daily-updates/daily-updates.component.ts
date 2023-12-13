@@ -18,6 +18,8 @@ export class DailyUpdatesComponent {
   sub:string="";
   link:any;
   topic:any;
+  date:any
+  data:any[]=[]
 constructor(private api:StudentsoperationsService,private toast:ToastrService){}
 
 ngOnInit(){
@@ -30,7 +32,16 @@ ngOnInit(){
 }
 
 
-getval1(data:any){this.classname=data;}
+getval1(data:any){
+this.classname=data;
+this.data =this.classes.filter((res:any)=>{ 
+  console.log(res,"respo")
+    if(res.class_name == data ){
+      return res;
+    }
+  });
+
+}
 getval2(data:any){this.division=data;}
 getval3(data:any){this.year=data;}
 
@@ -61,14 +72,15 @@ getval3(data:any){this.year=data;}
       division: this.division,
       subject: this.sub,
       link: this.link,
-      topic: this.topic
-    
+      topic: this.topic,
+      date:this.date
     }
 
 
 
     this.api.updateLink(this.sub_id,data).subscribe({
       next:(res)=>{
+        console.log(res,"resssss")
           this.toast.success("success")
           setTimeout(() => {
             location.reload()

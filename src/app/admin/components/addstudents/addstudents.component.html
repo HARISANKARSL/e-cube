@@ -35,15 +35,7 @@
             </div>
             <div class="row">
              
-              <div class="col-sm-12 col-md-12">
-                <mat-form-field class="example-full-width">
-                  <mat-label>Subjects</mat-label>
-                  
-                  <input matInput type="text" formControlName="subjects">
-                  
-          
-                </mat-form-field>
-              </div>
+           
             </div>
           </div>
       
@@ -54,10 +46,11 @@
             
           
                       
-              <mat-label>Choose an option</mat-label>
+              
               <mat-select matNativeControl required formControlName="class_name">
-                <ng-container *ngFor="let data of allClassDetails.class_details">
-                  <mat-option value="{{data.class_name}}">{{data.class_name}}</mat-option>
+                <ng-container >
+                 
+                  <mat-option *ngFor="let data of allClassDetails" value="{{data.class_name}}" (click)="getval(data.class_name)">{{data.class_name}}</mat-option>
                 </ng-container>
                 
                 
@@ -69,7 +62,7 @@
           <mat-form-field class="example-full-width">
             <mat-label>Division</mat-label>
             <mat-select matNativeControl required formControlName="division" >
-              <ng-container *ngFor="let data of allClassDetails.class_details">
+              <ng-container *ngFor="let data of data">
                 <mat-option value="{{data.division}}">{{data.division}}</mat-option>
               </ng-container>
               
@@ -80,7 +73,13 @@
         <div class="col-sm-12 col-lg-4">
           <mat-form-field class="example-full-width">
             <mat-label>Year</mat-label>
-            <input matInput type="number" formControlName="batch_year">
+            <mat-select matNativeControl required formControlName="batch_year" >
+              <ng-container *ngFor="let data of data">
+                <mat-option value="{{data.batch_year}}">{{data.batch_year}}</mat-option>
+              </ng-container>
+              
+             
+            </mat-select>
           </mat-form-field>
         </div>
       </div>

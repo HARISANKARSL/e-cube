@@ -18,6 +18,7 @@ export class VideoclassesComponent {
   sub:string="";
   link:any;
   date:string="";
+  data:any[]=[]
 constructor(private api:StudentsoperationsService,private toast:ToastrService){}
 
 ngOnInit(){
@@ -30,7 +31,15 @@ ngOnInit(){
 }
 
 
-getval1(data:any){this.classname=data;}
+getval1(data:any){this.classname=data;
+
+  this.data =this.classes.filter((res:any)=>{ 
+    console.log(res,"respo")
+      if(res.class_name == data ){
+        return res;
+      }
+    });
+}
 getval2(data:any){this.division=data;}
 getval3(data:any){this.year=data;}
 
@@ -67,7 +76,7 @@ getval3(data:any){this.year=data;}
 
 console.log(data,"ssas")
 
-    this.api.updateVideos(data).subscribe({
+    this.api.addVideos(data).subscribe({
       next:(res)=>{
         
         console.log(res)

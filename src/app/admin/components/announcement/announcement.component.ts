@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { StudentsoperationsService } from 'src/app/services/studentsoperations.service';
 
 @Component({
@@ -8,11 +9,12 @@ import { StudentsoperationsService } from 'src/app/services/studentsoperations.s
 })
 export class AnnouncementComponent {
   anouncement:any
-  anouncementData:string="";
+  anouncementData:any;
   anouncementDate:any
+  showVal:string=""
+  hideButton: boolean = false;
 
-
-  constructor(private api:StudentsoperationsService){}
+  constructor(private api:StudentsoperationsService,private toast:ToastrService){}
 ngOnInit(){
   
 this.api.getAnouncement().subscribe({
@@ -25,17 +27,52 @@ this.api.getAnouncement().subscribe({
   }
 })
 }
+updateValue(data:any){
+  this.showVal=data
+  this.anouncementData=""
+  this.anouncementDate=""
+  if (data === "create") {
+    this.hideButton = true;
+  } else {
+    this.hideButton = true;
+  }
+
+}
+createAnouncement(){
+
+
+  let  setdata = {
+    upload_date:this.anouncementDate,
+    announcement:this.anouncementData
+  };
+  this.api.addAnouncement(setdata).subscribe({
+    next:(res)=>{
+      if(res){
+        this.toast.success("succesfully Created")
+      
+          location.reload()
+        
+      }
+     
+ 
+    
+      
+    },error:(err)=>{
+      this.toast.error(err.message,"something went wrong")
+    }
+  })
+}
+
+
 delete(data:any) {
   this.anouncementData=data.announcement;
   this.anouncementDate=data.upload_date
  let  setdata = {
     upload_date: this.anouncementDate,
-    announcement:this.anouncementDate 
+    announcement:this.anouncementData 
    
   };
-  console.log(this.anouncementData);
-  console.log(this.anouncementDate)
-  console.log(setdata)
+  
 
   this.api.deleteAnouncement(setdata).subscribe({
     next: (res) => {
@@ -46,25 +83,40 @@ delete(data:any) {
     }
   });
 }
-getValues(data:any){
+getValues(data:any,edit:any){
+  this.showVal=edit
+  
   this.anouncementData=data.announcement
   this.anouncementDate=data.upload_date
+if(this.showVal=="edit"){
+  this.hideButton = false;
+  } else {
+    this.hideButton = true;
+  }
 
 
 }
-updateData(items:any){
-  this.anouncementData=items.announcement;
-  this.anouncementDate=items.upload_date
+updateData(){
+
  let  setdata = {
     upload_date: this.anouncementDate,
-    announcement:this.anouncementDate 
+    announcement:this.anouncementData 
    
   };
   this.api.updateAnouncement(setdata).subscribe({
     next:(res)=>{
-      console.log(res)
+    if(res){
+      this.toast.success("succesfully updated")
+     
+        location.reload()
+      
+    }
+    },error:(err)=>{
+      this.toast.error(err.message,"something went wrong")
     }
   })
 }
+
+
 
 }

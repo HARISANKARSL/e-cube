@@ -11,12 +11,14 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./addstudents.component.css']
 })
 export class AddstudentsComponent {
+  data:any[]=[]
 allClassDetails:any=[]
   toppings = new FormControl('');
   toppingList:string[] = ['Maths', 'Physics', 'Chemistry', 'Biology', 'Accountancy', 'English'];
   addStudents!:FormGroup
   constructor(private route :Router,private api:StudentsoperationsService,private toast:ToastrService){}
 ngOnInit(){
+  
   this.addStudents=new FormGroup({
     name:new FormControl("",Validators.required),
     phone_no:new FormControl("",Validators.required),
@@ -24,7 +26,7 @@ ngOnInit(){
 
     school_name:new FormControl("",Validators.required),
     admission_no:new FormControl("",Validators.required),
-    subjects:new FormControl("",[Validators.required]),
+ 
 
     class_name:new FormControl("",Validators.required),
     division:new FormControl("",Validators.required),
@@ -34,10 +36,19 @@ ngOnInit(){
   this.api.getAllClassDetails().subscribe({
     next:(res)=>{
     
-      this.allClassDetails=res
+      this.allClassDetails=res.class_details
  
     }
   })
+}
+getval(item:any){
+
+  this.data =this.allClassDetails.filter((res:any)=>{ 
+  console.log(res,"respo")
+    if(res.class_name == item ){
+      return res;
+    }
+  });
 }
 addStudent(){
 

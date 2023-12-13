@@ -29,6 +29,7 @@ ngOnInit(){
 getval(item:any){
 
   this.data =this.allBatch.filter((res:any)=>{ 
+  console.log(res,"test")
     if(res.class_name == item ){
       return res;
     }

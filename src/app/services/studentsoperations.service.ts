@@ -193,8 +193,11 @@ getRecordLists(class_name:any,division:any,batch_year:any){
   console.log(class_name,division,batch_year)
 return this.http.get<any>(`https://sapadminportal.online/class/updates/recordings/operation/?class_name=${class_name}&batch_year=${batch_year}&division=${division}`)
 }
-updateVideos(data:any){
-  return this.http.put<any>(this.baseUrl+`class/updates/recordings/operation/`,data)
+addVideos(data:any){
+  return this.http.post<any>(this.baseUrl+`class/updates/recordings/operation/`,data)
+}
+addAnouncement(data:any){
+  return this.http.post<any>("https://sapadminportal.online/class/updates/announcement/operation/",data)
 }
 getAnouncement(){
   return this.http.get<any>(this.baseUrl+'class/updates/announcement/operation/')
@@ -205,5 +208,6 @@ deleteAnouncement(anouncement:any){
 updateAnouncement(data:any){
   return this.http.put<any>('https://sapadminportal.online/class/updates/announcement/operation/',data)
 }
+
 
 }
