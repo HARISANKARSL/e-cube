@@ -48,7 +48,7 @@ import { AddMarksComponent } from './components/exam-results/add-marks/add-marks
 import { DailyUpdatesComponent } from './components/daily-updates/daily-updates.component';
 import { VideoclassesComponent } from './components/videoclasses/videoclasses.component';
 import { AnnouncementComponent } from './components/announcement/announcement.component';
-
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -101,7 +101,8 @@ import { AnnouncementComponent } from './components/announcement/announcement.co
    MatDatepickerModule,
    MatNativeDateModule,
    PlatformModule,
-   MatTabsModule
+   MatTabsModule,
+   MatChipsModule
   ]
 })
 export class AdminModule { }

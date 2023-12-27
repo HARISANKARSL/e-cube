@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, TrackByFunction, inject } from '@angular/core';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 import { StudentsoperationsService } from 'src/app/services/studentsoperations.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-addstudents',
@@ -13,9 +15,13 @@ import { ToastrService } from 'ngx-toastr';
 export class AddstudentsComponent {
   data:any[]=[]
 allClassDetails:any=[]
-  toppings = new FormControl('');
-  toppingList:string[] = ['Maths', 'Physics', 'Chemistry', 'Biology', 'Accountancy', 'English'];
+
   addStudents!:FormGroup
+  keywords = ['Physics', 'Chemistry', 'Maths'];
+  formControl = new FormControl(['angular']);
+
+  announcer = inject(LiveAnnouncer);
+trackByFn: TrackByFunction<string> | undefined;
   constructor(private route :Router,private api:StudentsoperationsService,private toast:ToastrService){}
 ngOnInit(){
   
@@ -27,7 +33,7 @@ ngOnInit(){
     school_name:new FormControl("",Validators.required),
     admission_no:new FormControl("",Validators.required),
  
-
+    subjects: new FormControl(this.keywords, Validators.required),
     class_name:new FormControl("",Validators.required),
     division:new FormControl("",Validators.required),
     batch_year:new FormControl("",Validators.required),
@@ -67,5 +73,26 @@ this.api.addNewStudent(this.addStudents.value).subscribe({
   }
 
 })
+
+}
+removeKeyword(keyword: string) {
+  const index = this.keywords.indexOf(keyword);
+  if (index >= 0) {
+    this.keywords.splice(index, 1);
+
+    this.announcer.announce(`removed ${keyword}`);
+  }
+}
+
+add(event: MatChipInputEvent): void {
+  const value = (event.value || '').trim();
+
+  // Add our keyword
+  if (value) {
+    this.keywords.push(value);
+  }
+
+  // Clear the input value
+  event.chipInput!.clear();
 }
 }

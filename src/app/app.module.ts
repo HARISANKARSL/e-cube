@@ -20,7 +20,7 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { ToastrModule } from 'ngx-toastr';
 import {MatMenuModule} from '@angular/material/menu';
 import { UpdatebatchComponent } from './components/shared/updatebatch/updatebatch.component';
-
+import {MatChipsModule} from '@angular/material/chips';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 @NgModule({
@@ -47,7 +47,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-   
+    MatChipsModule,
      MatTableModule,
  
       MatPaginatorModule,
